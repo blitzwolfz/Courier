@@ -1,0 +1,42 @@
+[package]
+name = "courier"
+version = "0.1.0"
+description = "A fast, local-first API development platform"
+authors = ["you"]
+license = "MIT"
+repository = ""
+edition = "2021"
+rust-version = "1.77.2"
+
+[lib]
+name = "courier_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", features = ["json", "multipart", "cookies", "native-tls"] }
+rusqlite = { version = "0.31", features = ["bundled"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1"
+log = "0.4"
+url = "2"
+tokio-tungstenite = { version = "0.24", features = ["native-tls"] }
+futures-util = "0.3"
+boa_engine = { version = "0.21", features = ["annex-b"] }
+boa_runtime = "0.21"
+tonic = { version = "0.12", features = ["tls", "transport"] }
+prost = "0.13"
+prost-types = "0.13"
+prost-reflect = { version = "0.14", features = ["serde"] }
+protox = "0.7"
+http = "1"
+hyper-util = "0.1"
+tower = "0.5"
