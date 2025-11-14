@@ -1,0 +1,66 @@
+@import './reset.css';
+@import './variables.css';
+
+html {
+  font-size: var(--font-size-body);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-code);
+}
+
+/* ── GEOMETRIC SCROLLBARS ──
+   Solid color blocks. No rounding. Mondrian grid lines. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--color-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-light-gray);
+  border-radius: 0;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-secondary);
+}
+
+/* ── SELECTION — Red plane ── */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-white);
+}

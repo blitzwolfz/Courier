@@ -1,0 +1,172 @@
+/* ============================================================
+   COURIER — MONDRIAN / BAUHAUS CONTROL DECK
+   A radical Neoplasticist design system.
+
+   Interlocking color planes. Zero radii. Edge-to-edge blocks.
+   Heavy typographic hierarchy. Geometric precision.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;0,9..40,900;1,9..40,300&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* ── MONDRIAN PRIMARY PALETTE ── */
+  --color-primary: #E1000F;         /* De Stijl red — action, power */
+  --color-primary-dark: #A8000B;
+  --color-primary-light: #FF2D3A;
+
+  /* ── NEOPLASTIC NEUTRALS ── */
+  --color-black: #000000;           /* True black — structure */
+  --color-charcoal: #1A1A1A;        /* Deep charcoal — content zones */
+  --color-gray: #3A3A3A;
+  --color-mid-gray: #666666;
+  --color-light-gray: #B0B0B0;
+  --color-warm-white: #F5F0EB;      /* Warm white — Bauhaus canvas */
+  --color-white: #FFFFFF;
+  --color-zebra: #EDE8E3;
+
+  /* ── ACCENT PLANES ── */
+  --color-warning: #FFD700;          /* Mondrian yellow — highlights */
+  --color-yellow-muted: #E8C200;
+  --color-success: #00805A;          /* Deep green — success */
+  --color-info: #0066CC;             /* Utility blue (sparingly) */
+
+  /* ── HTTP METHOD COLORS (saturated blocks) ── */
+  --color-get: #00805A;
+  --color-post: #E1000F;
+  --color-put: #E8C200;
+  --color-patch: #CC6600;
+  --color-delete: #000000;
+  --color-head: #666666;
+  --color-options: #3A3A3A;
+
+  /* ── BACKGROUND PLANES ── */
+  --bg-primary: #F5F0EB;            /* Warm canvas */
+  --bg-secondary: #EDE8E3;          /* Slightly darker canvas */
+  --bg-tertiary: #E0DBD5;           /* Hover / active */
+  --bg-panel: #F5F0EB;
+  --bg-input: #FFFFFF;
+  --bg-sidebar: #000000;            /* Black sidebar zone */
+  --bg-topbar: #E1000F;             /* Red control strip */
+  --bg-content: #1A1A1A;            /* Dark content zone */
+  --bg-response: #F5F0EB;
+
+  /* ── TEXT COLORS ── */
+  --text-primary: #000000;
+  --text-secondary: #3A3A3A;
+  --text-tertiary: #888888;
+  --text-inverse: #F5F0EB;
+  --text-disabled: #B0B0B0;
+  --text-on-red: #FFFFFF;
+  --text-on-black: #F5F0EB;
+  --text-on-yellow: #000000;
+
+  /* ── SPACING (8px grid, strict) ── */
+  --space-2xs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* ── BORDERS — heavy structural lines ── */
+  --border-primary: 3px solid #000000;
+  --border-secondary: 2px solid #000000;
+  --border-light: 1px solid #B0B0B0;
+  --border-heavy: 4px solid #000000;
+  --border-focus: 3px solid #E1000F;
+  --border-radius: 0px;             /* ZERO. Always. */
+
+  /* ── TYPOGRAPHY — Structural ── */
+  --font-sans: 'DM Sans', 'Segoe UI', 'SF Pro', sans-serif;
+  --font-mono: 'Space Mono', 'JetBrains Mono', 'Consolas', monospace;
+
+  /* Display scale — massive, Bauhaus-poster level */
+  --font-size-display: 48px;
+  --font-size-h1: 28px;
+  --font-size-h2: 20px;
+  --font-size-h3: 16px;
+  --font-size-body-lg: 14px;
+  --font-size-body: 13px;
+  --font-size-caption: 11px;
+  --font-size-code: 13px;
+  --font-size-micro: 9px;
+
+  /* URL bar — the hero element */
+  --font-size-url: 18px;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --line-height-body: 1.5;
+  --line-height-heading: 1.1;
+  --line-height-tight: 1.0;
+
+  --letter-spacing-tight: -0.5px;
+  --letter-spacing-wide: 1.5px;
+  --letter-spacing-ultra: 3px;
+
+  /* ── COMPONENT HEIGHTS ── */
+  --height-input: 36px;
+  --height-button: 36px;
+  --height-button-lg: 44px;
+  --height-topbar: 48px;
+  --height-row: 36px;
+  --height-tab: 40px;
+  --height-url-bar: 56px;           /* Massive URL zone */
+
+  /* ── SIDEBAR ── */
+  --sidebar-width: 280px;
+  --sidebar-min-width: 220px;
+
+  /* ── Z-INDEX ── */
+  --z-dropdown: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+
+  /* ── TRANSITIONS ── */
+  --transition-fast: 80ms ease;
+  --transition-normal: 160ms ease;
+  --transition-slow: 300ms ease;
+}
+
+/* ============================================================
+   DARK THEME — Inverted Mondrian
+   Black becomes the canvas. Warm tones emerge from darkness.
+   ============================================================ */
+[data-theme="dark"] {
+  --color-black: #F5F0EB;
+
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #161616;
+  --bg-tertiary: #222222;
+  --bg-panel: #0D0D0D;
+  --bg-input: #1A1A1A;
+  --bg-sidebar: #000000;
+  --bg-topbar: #E1000F;
+  --bg-content: #0D0D0D;
+  --bg-response: #111111;
+
+  --text-primary: #F5F0EB;
+  --text-secondary: #CCCCCC;
+  --text-tertiary: #777777;
+  --text-inverse: #000000;
+  --text-disabled: #444444;
+
+  --border-primary: 3px solid #444444;
+  --border-secondary: 2px solid #333333;
+  --border-light: 1px solid #333333;
+  --border-heavy: 4px solid #555555;
+  --border-focus: 3px solid #FF2D3A;
+
+  --color-zebra: #1A1A1A;
+  --color-light-gray: #444444;
+  --color-gray: #999999;
+  --color-mid-gray: #777777;
+  --color-warm-white: #F5F0EB;
+  --color-delete: #FF4444;
+}
