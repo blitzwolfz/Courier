@@ -1,0 +1,32 @@
+/* Badge — Mondrian/Bauhaus: bold blocky rectangles, zero radius, solid planes */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-xs);
+  height: 22px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  white-space: nowrap;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Method badges — solid color blocks with white text, heavy black border */
+.method {
+  color: var(--color-white);
+  min-width: 44px;
+  text-align: center;
+  border: 2px solid var(--color-black);
+}
+
+/* Status badges — outlined with currentColor border */
+.status {
+  border: 2px solid currentColor;
+  background: transparent;
+}

@@ -1,0 +1,41 @@
+/* Input — Mondrian/Bauhaus: heavy borders, zero radius, structural planes */
+
+.input {
+  height: var(--height-input);
+  padding: 0 var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  background-color: var(--bg-input);
+  border: 2px solid var(--color-black);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--transition-fast), border-width var(--transition-fast);
+  width: 100%;
+}
+
+.input:focus {
+  border: 3px solid var(--color-primary);
+  padding: 0 calc(var(--space-sm) - 1px);
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: var(--font-weight-regular);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mono variant for code input */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-code);
+  letter-spacing: 0;
+}

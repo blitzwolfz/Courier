@@ -1,0 +1,85 @@
+/* Button — Mondrian/Bauhaus: bold planes, heavy borders, zero radius */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  height: var(--height-button);
+  padding: 0 var(--space-md);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1;
+  border: 3px solid var(--color-black);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary — solid red plane, white text, heavy black border */
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.primary:active:not(:disabled) {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+/* Secondary — warm white plane, black text, heavy black border */
+.secondary {
+  background-color: #F5F0EB;
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.secondary:active:not(:disabled) {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Danger — white bg, red text, red border; hover inverts */
+.danger {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.danger:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.danger:active:not(:disabled) {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+/* Large variant — taller, bigger text */
+.large {
+  height: var(--height-button-lg);
+  font-size: var(--font-size-body-lg);
+  padding: 0 var(--space-lg);
+  letter-spacing: 1.5px;
+}
