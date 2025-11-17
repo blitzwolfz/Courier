@@ -1,0 +1,216 @@
+/* ═══════════════════════════════════════════════
+   KEYVALUE EDITOR — Mondrian Control Deck
+   Structural table with heavy borders,
+   edge-to-edge planes, zero radius
+   ═══════════════════════════════════════════════ */
+
+.container {
+  width: 100%;
+  border: 3px solid #000000;
+}
+
+/* ── Header Row: Black slab with white uppercase ── */
+
+.header {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  background-color: #000000;
+  border-bottom: 3px solid #000000;
+}
+
+.headerCheckbox {
+  width: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid #333333;
+  padding: 8px 0;
+}
+
+.headerKey,
+.headerValue {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-on-black);
+  border-right: 2px solid #333333;
+}
+
+.headerValue {
+  border-right: none;
+}
+
+.headerAction {
+  width: 40px;
+  flex-shrink: 0;
+  border-left: 2px solid #333333;
+}
+
+/* ── Data Rows: Edge-to-edge cells ── */
+
+.row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  border-bottom: 2px solid #000000;
+  min-height: 36px;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+/* ── Toggle Checkbox: Square, red when active ── */
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #E1000F;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid #000000;
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 12px;
+}
+
+.checkbox:checked {
+  background-color: #E1000F;
+  border-color: #E1000F;
+}
+
+.checkbox:checked::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: #FFFFFF;
+  display: block;
+}
+
+/* ── Key/Value Inputs: Edge-to-edge, no gap ── */
+
+.keyInput,
+.valueInput {
+  flex: 1;
+  height: 100%;
+  min-height: 36px;
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-code);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: none;
+  border-right: 2px solid #000000;
+  border-radius: 0;
+  outline: none;
+}
+
+.valueInput {
+  border-right: none;
+}
+
+.keyInput:focus,
+.valueInput:focus {
+  background-color: #FFFDE6;
+  border-color: #000000;
+}
+
+.keyInput::placeholder,
+.valueInput::placeholder {
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+
+/* ── Delete Button ── */
+
+.deleteBtn {
+  flex-shrink: 0;
+  opacity: 0;
+  border-left: 2px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  cursor: pointer;
+  transition: opacity 0.1s;
+}
+
+.row:hover .deleteBtn {
+  opacity: 1;
+}
+
+.deleteBtn:hover {
+  background-color: #E1000F;
+  color: #FFFFFF;
+}
+
+/* ── Add Row: Simple black text, uppercase ── */
+
+.addRow {
+  padding: 0;
+  border-top: none;
+}
+
+.addBtn {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #000000;
+  background: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.addBtn:hover {
+  background-color: #000000;
+  color: var(--text-on-black);
+}
+
+/* ── Dark mode overrides ── */
+
+[data-theme="dark"] .container {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .keyInput,
+[data-theme="dark"] .valueInput {
+  background-color: var(--bg-content);
+  color: var(--text-on-black);
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .keyInput:focus,
+[data-theme="dark"] .valueInput:focus {
+  background-color: #2A2A1A;
+}
+
+[data-theme="dark"] .row {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .addBtn {
+  color: var(--text-on-black);
+}
+
+[data-theme="dark"] .addBtn:hover {
+  background-color: var(--text-on-black);
+  color: #000000;
+}
