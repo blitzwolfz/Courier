@@ -1,0 +1,48 @@
+/* ============================================================
+   APP LAYOUT — MONDRIAN COMPOSITION
+   Interlocking planes. No air. No gaps. Edge to edge.
+   ============================================================ */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.main {
+  flex: 1;
+  overflow: hidden;
+  border-top: none;
+}
+
+/* ── RESIZE HANDLES — Structural black lines ── */
+.resizeHandleH {
+  width: 4px;
+  background-color: #000000;
+  cursor: col-resize;
+  transition: background-color var(--transition-fast);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.resizeHandleH:hover,
+.resizeHandleH[data-resize-handle-active] {
+  background-color: var(--color-primary);
+}
+
+.resizeHandleV {
+  height: 4px;
+  background-color: #000000;
+  cursor: row-resize;
+  transition: background-color var(--transition-fast);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.resizeHandleV:hover,
+.resizeHandleV[data-resize-handle-active] {
+  background-color: var(--color-primary);
+}

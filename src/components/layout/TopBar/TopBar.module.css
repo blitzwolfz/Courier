@@ -1,0 +1,119 @@
+/* ============================================================
+   TOPBAR — RED MONDRIAN CONTROL STRIP
+   A solid red plane spanning the full width.
+   White text. Heavy uppercase labels. Zero decoration.
+   ============================================================ */
+
+.topBar {
+  display: flex;
+  align-items: center;
+  height: var(--height-topbar);
+  padding: 0 var(--space-md);
+  background-color: var(--color-primary);
+  border-bottom: 3px solid #000000;
+  gap: 0;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-right: var(--space-md);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-black);
+  color: #FFFFFF;
+  letter-spacing: var(--letter-spacing-ultra);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.logoIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.nav {
+  display: flex;
+  gap: 0;
+  flex: 1;
+  align-items: stretch;
+  height: 100%;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-md);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: rgba(255, 255, 255, 0.6);
+  background: none;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  height: 100%;
+}
+
+.navButton:first-child {
+  border-left: none;
+}
+
+.navButton:hover {
+  color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.navButtonActive {
+  color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -3px 0 #FFFFFF;
+}
+
+.navDivider {
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-left: auto;
+}
+
+.envSelect {
+  height: 28px;
+  padding: 0 var(--space-sm);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
+  cursor: pointer;
+  appearance: none;
+  padding-right: var(--space-lg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+}
+
+.envSelect option {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}

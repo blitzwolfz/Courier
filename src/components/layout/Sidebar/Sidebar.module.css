@@ -1,0 +1,199 @@
+/* ============================================================
+   SIDEBAR — BLACK ZONE
+   The sidebar is a dark monolith. A control deck carved from
+   pure black, with warm-white text and red accent lines.
+   ============================================================ */
+
+.sidebar {
+  height: 100%;
+  min-width: 0;
+  background-color: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: var(--border-primary);
+}
+
+/* ── HEADER BLOCK ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 3px solid var(--color-primary);
+  flex-shrink: 0;
+  min-height: 40px;
+  background-color: var(--bg-sidebar);
+}
+
+.title {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-ultra);
+  color: var(--text-on-black);
+  white-space: nowrap;
+  line-height: var(--line-height-tight);
+}
+
+/* ── SEARCH BAR ── */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-bottom: 2px solid var(--color-charcoal);
+  flex-shrink: 0;
+  min-width: 0;
+  background-color: var(--color-charcoal);
+}
+
+.searchIcon {
+  color: var(--color-light-gray);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  padding: 0 var(--space-xs);
+  font-size: var(--font-size-caption);
+  font-family: var(--font-mono);
+  color: var(--text-on-black);
+  background: transparent;
+  border: none;
+  outline: none;
+  letter-spacing: 0.5px;
+}
+
+.searchInput::placeholder {
+  color: var(--color-mid-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--font-size-micro);
+}
+
+.searchInput:focus {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ── METHOD FILTER ── */
+.methodFilter {
+  height: 24px;
+  padding: 0 var(--space-xs);
+  font-size: var(--font-size-micro);
+  font-weight: var(--font-weight-black);
+  font-family: var(--font-mono);
+  color: var(--text-on-black);
+  background: var(--color-gray);
+  border: 2px solid var(--color-mid-gray);
+  border-radius: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.methodFilter:hover {
+  border-color: var(--color-primary);
+}
+
+/* ── CONTENT AREA ── */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Scrollbar styling for dark zone */
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--bg-sidebar);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--color-gray);
+  border-radius: 0;
+}
+
+/* ── EMPTY STATE ── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-md);
+  text-align: center;
+  color: var(--color-mid-gray);
+  font-size: var(--font-size-caption);
+  gap: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ── HISTORY ITEMS ── */
+.historyItem {
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: 0;
+  cursor: pointer;
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-charcoal);
+  transition: background-color var(--transition-fast);
+  min-width: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.historyItem:hover {
+  background-color: var(--color-charcoal);
+}
+
+.historyItem:active {
+  background-color: var(--color-gray);
+}
+
+.historyTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: 3px;
+  min-width: 0;
+}
+
+.historyTime {
+  font-size: var(--font-size-micro);
+  font-family: var(--font-mono);
+  color: var(--color-mid-gray);
+  margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.historyUrl {
+  font-size: var(--font-size-caption);
+  font-family: var(--font-mono);
+  color: var(--text-on-black);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  opacity: 0.85;
+}
+
+.historyTimestamp {
+  font-size: var(--font-size-micro);
+  color: var(--color-mid-gray);
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+}
