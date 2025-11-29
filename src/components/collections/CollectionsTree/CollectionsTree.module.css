@@ -1,0 +1,208 @@
+/* ============================================================
+   COLLECTIONS TREE — DARK SIDEBAR INHABITANT
+   Lives inside the black sidebar zone. Light text on dark.
+   Structural hierarchy through indentation and borders.
+   ============================================================ */
+
+/* ── HEADER ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 2px solid var(--color-charcoal);
+  flex-shrink: 0;
+  background: var(--bg-sidebar);
+}
+
+.title {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-black);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-ultra);
+  color: var(--text-on-black);
+  line-height: var(--line-height-tight);
+}
+
+.headerActions {
+  display: flex;
+  gap: 0;
+}
+
+/* ── CONTENT SCROLL AREA ── */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  min-width: 0;
+}
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--bg-sidebar);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--color-gray);
+  border-radius: 0;
+}
+
+/* ── COLLECTION ITEM ── */
+.collectionItem {
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--color-charcoal);
+}
+
+.collectionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color var(--transition-fast);
+  min-width: 0;
+  background: transparent;
+}
+
+.collectionHeader:hover {
+  background-color: var(--color-charcoal);
+}
+
+/* ── CHEVRON ── */
+.chevron {
+  transition: transform var(--transition-fast);
+  color: var(--color-light-gray);
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+}
+
+/* ── COLLECTION NAME ── */
+.collectionName {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-black);
+  color: var(--text-on-black);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── REQUESTS LIST ── */
+.requestsList {
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--color-charcoal);
+  margin-left: var(--space-md);
+}
+
+.requestItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color var(--transition-fast);
+  min-width: 0;
+  border-bottom: 1px solid rgba(58, 58, 58, 0.4);
+}
+
+.requestItem:hover {
+  background-color: var(--color-charcoal);
+}
+
+.requestItem:last-child {
+  border-bottom: none;
+}
+
+/* ── REQUEST NAME ── */
+.requestName {
+  font-size: var(--font-size-caption);
+  font-family: var(--font-mono);
+  color: var(--text-on-black);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+/* ── EMPTY STATE ── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-md);
+  text-align: center;
+  color: var(--color-mid-gray);
+  font-size: var(--font-size-caption);
+  gap: var(--space-md);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ── ACTION BUTTON ── */
+.actionBtn {
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.collectionHeader:hover .actionBtn {
+  opacity: 1;
+}
+
+/* ── NEW INPUT ── */
+.newInput {
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+/* ── DRAG HANDLE ── */
+.dragHandle {
+  display: flex;
+  align-items: center;
+  cursor: grab;
+  color: var(--color-mid-gray);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.collectionHeader:hover .dragHandle {
+  opacity: 0.6;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+/* ── DROP TARGET — Red dashed outline ── */
+.collectionDropTarget {
+  background-color: var(--color-charcoal);
+  border-radius: 0;
+  outline: 2px dashed var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* ── DRAG OVERLAY — Red border, dark background ── */
+.dragOverlay {
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-charcoal);
+  border: 3px solid var(--color-primary);
+  border-radius: 0;
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-black);
+  color: var(--text-on-black);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
