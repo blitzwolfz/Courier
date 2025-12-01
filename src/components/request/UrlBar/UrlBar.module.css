@@ -1,0 +1,130 @@
+/* ============================================================
+   URL BAR — MONDRIAN CONTROL DECK
+   A massive typographic command strip. Interlocking color planes
+   butt up edge-to-edge with heavy black structural lines.
+   Zero radii. Zero gaps. Pure Neoplasticism.
+   ============================================================ */
+
+.urlBar {
+  display: flex;
+  align-items: stretch;
+  height: var(--height-url-bar);
+  border-bottom: 3px solid var(--color-black);
+  padding: 0;
+  gap: 0;
+  background-color: var(--bg-primary);
+}
+
+/* ── METHOD SELECT — Solid Color Block ── */
+.methodSelect {
+  flex-shrink: 0;
+  width: 130px;
+  height: 100%;
+  padding: 0 var(--space-md);
+  padding-right: var(--space-xl);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: none;
+  border-right: 3px solid var(--color-black);
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  line-height: var(--height-url-bar);
+}
+
+.methodSelect:focus {
+  background-color: var(--bg-tertiary);
+}
+
+/* ── URL INPUT — Edge-to-Edge Mono Field ── */
+.urlInput {
+  flex: 1;
+  height: 100%;
+  padding: 0 var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-url);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-primary);
+  background-color: var(--bg-input);
+  border: none;
+  border-radius: 0;
+  outline: none;
+  line-height: var(--height-url-bar);
+}
+
+.urlInput::placeholder {
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.urlInput:focus {
+  background-color: var(--bg-primary);
+}
+
+/* ── SEND BUTTON — Solid Black Block ── */
+.sendButton {
+  flex-shrink: 0;
+  min-width: 110px;
+  height: 100%;
+  padding: 0 var(--space-xl);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--letter-spacing-ultra);
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: #000000;
+  border: none;
+  border-left: 3px solid var(--color-black);
+  border-radius: 0;
+  cursor: pointer;
+  line-height: var(--height-url-bar);
+  transition: background-color var(--transition-fast);
+}
+
+.sendButton:hover {
+  background-color: #1A1A1A;
+}
+
+.sendButton:active {
+  background-color: var(--color-primary);
+}
+
+/* ── CANCEL BUTTON — Solid Red Block ── */
+.cancelButton {
+  flex-shrink: 0;
+  min-width: 110px;
+  height: 100%;
+  padding: 0 var(--space-xl);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--letter-spacing-ultra);
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-left: 3px solid var(--color-black);
+  border-radius: 0;
+  cursor: pointer;
+  line-height: var(--height-url-bar);
+  transition: background-color var(--transition-fast);
+}
+
+.cancelButton:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.cancelButton:active {
+  background-color: #000000;
+  color: var(--color-primary);
+}
