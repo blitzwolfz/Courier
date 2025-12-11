@@ -1,0 +1,123 @@
+/* ═══════════════════════════════════════════════
+   AUTH EDITOR — Mondrian Control Deck
+   Blocky dropdown, heavy-bordered fields,
+   Mondrian-style sectioned layout
+   ═══════════════════════════════════════════════ */
+
+.container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Auth Type Selector: Bold blocky dropdown zone ── */
+
+.typeSelect {
+  margin-bottom: 0;
+  padding: 12px 16px;
+  background-color: #000000;
+  border-bottom: 3px solid #000000;
+}
+
+/* ── Form Fields: Heavy borders, uppercase labels ── */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+  border-bottom: 2px solid #000000;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #000000;
+  background-color: var(--bg-tertiary);
+  padding: 8px 16px;
+  border-bottom: 2px solid #000000;
+}
+
+.field input,
+.field textarea {
+  border-radius: 0;
+}
+
+/* ── Row Layout: Mondrian-style sections ── */
+
+.row {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  border-bottom: 2px solid #000000;
+}
+
+.row > * {
+  flex: 1;
+  border-right: 2px solid #000000;
+}
+
+.row > *:last-child {
+  border-right: none;
+}
+
+/* ── No Auth State ── */
+
+.noAuth {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 32px 16px;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  border-bottom: 2px solid #000000;
+}
+
+/* ── Hint Text ── */
+
+.hint {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-tertiary);
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  background-color: var(--bg-secondary);
+  border-bottom: 2px solid #000000;
+}
+
+/* ── Dark mode overrides ── */
+
+[data-theme="dark"] .label {
+  color: var(--text-on-black);
+  background-color: #2A2A2A;
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .field {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .row {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .row > * {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .noAuth {
+  background-color: var(--bg-content);
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .hint {
+  background-color: var(--bg-content);
+  border-color: var(--text-on-black);
+}
