@@ -1,0 +1,49 @@
+/* ═══════════════════════════════════════════════
+   CODE GENERATOR — Mondrian Control Deck
+   Bold blocky language tabs,
+   dark charcoal code area, simple copy button
+   ═══════════════════════════════════════════════ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Toolbar: Bold blocky language selector ── */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border-bottom: 3px solid #000000;
+  flex-shrink: 0;
+  background-color: #000000;
+}
+
+.langSelect {
+  flex: 1;
+  max-width: 280px;
+  border-right: 2px solid #333333;
+}
+
+/* ── Copy/Actions Zone ── */
+
+.toolbar > *:not(.langSelect) {
+  padding: 8px 16px;
+  border-right: 2px solid #333333;
+}
+
+.toolbar > *:last-child {
+  border-right: none;
+}
+
+/* ── Editor Area: Dark charcoal background ── */
+
+.editorArea {
+  flex: 1;
+  min-height: 0;
+  background-color: var(--bg-content);
+}

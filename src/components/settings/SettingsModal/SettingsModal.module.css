@@ -1,0 +1,377 @@
+/* ============================================
+   SETTINGS MODAL — MONDRIAN CONTROL DECK
+   Bauhaus structural grid. Zero radius.
+   Heavy black borders. Color-block zones.
+   ============================================ */
+
+/* --- OVERLAY --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- MODAL FRAME --- */
+.modal {
+  width: 660px;
+  max-height: 540px;
+  background-color: var(--bg-primary, #F5F0EB);
+  border: 3px solid #000000;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- HEADER (black zone) --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: #000000;
+  border-bottom: 3px solid #000000;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 900;
+  color: #F5F0EB;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-primary, #E1000F);
+  border: 2px solid #F5F0EB;
+  border-radius: 0;
+  cursor: pointer;
+  color: #F5F0EB;
+  transition: background-color 0.15s ease;
+}
+
+.closeButton:hover {
+  background-color: #B8000C;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+/* --- BODY LAYOUT --- */
+.body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* --- SIDEBAR (dark charcoal zone) --- */
+.sidebar {
+  width: 170px;
+  flex-shrink: 0;
+  background-color: #1A1A1A;
+  border-right: 3px solid #000000;
+  padding: 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #999999;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.sidebarItem:hover {
+  color: #F5F0EB;
+  background-color: #2A2A2A;
+}
+
+.sidebarItemActive {
+  color: #F5F0EB;
+  border-left-color: var(--color-primary, #E1000F);
+  background-color: #2A2A2A;
+}
+
+/* --- CONTENT AREA (warm white canvas) --- */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+  background-color: var(--bg-primary, #F5F0EB);
+}
+
+/* --- SECTIONS --- */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #000000;
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #000000;
+}
+
+/* --- FORM FIELDS --- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #000000;
+}
+
+.fieldHint {
+  font-size: 10px;
+  color: #666666;
+  letter-spacing: 0.5px;
+}
+
+.fieldInput {
+  height: 32px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  border: 2px solid #000000;
+  border-radius: 0;
+  background: #FFFFFF;
+  color: #000000;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.fieldInput:focus {
+  border-color: var(--color-primary, #E1000F);
+  border-width: 2px;
+}
+
+.numberInput {
+  width: 80px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.textInput {
+  width: 200px;
+}
+
+.selectInput {
+  height: 32px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  border: 2px solid #000000;
+  border-radius: 0;
+  background: #FFFFFF;
+  color: #000000;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  transition: border-color 0.15s ease;
+}
+
+.selectInput:focus {
+  border-color: var(--color-primary, #E1000F);
+}
+
+/* --- TOGGLE SWITCH (square Mondrian style) --- */
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.toggleInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggleTrack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999999;
+  border: 2px solid #000000;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.toggleTrack::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 0;
+  transition: transform 0.15s ease;
+}
+
+.toggleInput:checked + .toggleTrack {
+  background-color: var(--color-primary, #E1000F);
+}
+
+.toggleInput:checked + .toggleTrack::after {
+  transform: translateX(18px);
+}
+
+/* --- FOOTER --- */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 16px;
+  border-top: 3px solid #000000;
+  background-color: var(--bg-primary, #F5F0EB);
+  flex-shrink: 0;
+}
+
+.footerHint {
+  flex: 1;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666666;
+}
+
+.saveButton {
+  height: 34px;
+  padding: 0 20px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  background-color: var(--color-primary, #E1000F);
+  border: 2px solid #000000;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.saveButton:hover {
+  background-color: #B8000C;
+}
+
+.saveButton:disabled {
+  background-color: #CCCCCC;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.cancelButton {
+  height: 34px;
+  padding: 0 20px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000000;
+  background-color: var(--bg-primary, #F5F0EB);
+  border: 2px solid #000000;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.cancelButton:hover {
+  background-color: #E0DBD5;
+}
+
+/* --- SHORTCUTS TABLE --- */
+.shortcutsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shortcutsTable tr {
+  border-bottom: 1px solid #000000;
+}
+
+.shortcutsTable tr:last-child {
+  border-bottom: none;
+}
+
+.shortcutsTable td {
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.shortcutsTable td:first-child {
+  color: #444444;
+  width: 55%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+
+.kbd {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  border: 2px solid #000000;
+  border-radius: 0;
+  background-color: #000000;
+  color: #F5F0EB;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

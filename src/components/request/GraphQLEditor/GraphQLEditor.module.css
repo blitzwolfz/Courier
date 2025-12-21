@@ -1,0 +1,57 @@
+/* ═══════════════════════════════════════════════
+   GRAPHQL EDITOR — Mondrian Control Deck
+   Split panes with heavy dividers,
+   dark code zones, bold section labels
+   ═══════════════════════════════════════════════ */
+
+.container {
+  display: flex;
+  height: 100%;
+  min-height: 200px;
+  gap: 0;
+}
+
+/* ── Split Panes ── */
+
+.pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ── Pane Headers: Black slab with white text ── */
+
+.paneHeader {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #000000;
+  border-bottom: 3px solid #000000;
+  flex-shrink: 0;
+}
+
+.paneTitle {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-on-black);
+}
+
+/* ── Pane Body: Dark code editor zone ── */
+
+.paneBody {
+  flex: 1;
+  min-height: 0;
+  background-color: var(--bg-content);
+}
+
+/* ── Heavy Dividing Border ── */
+
+.divider {
+  width: 3px;
+  background-color: #000000;
+  flex-shrink: 0;
+}

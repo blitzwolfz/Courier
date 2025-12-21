@@ -1,0 +1,583 @@
+/* ═══════════════════════════════════════════════
+   GRPC PANEL — Mondrian Control Deck
+   Heavy toolbar, dark sidebar service list,
+   solid color method badges, structural borders
+   ═══════════════════════════════════════════════ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Toolbar: Heavy bottom border ── */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border-bottom: 3px solid #000000;
+  flex-shrink: 0;
+  background-color: var(--bg-primary);
+}
+
+.urlInput {
+  flex: 1;
+  border-right: 2px solid #000000;
+}
+
+/* ── Workspace ── */
+
+.workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Left Panel: Dark sidebar-style service list ── */
+
+.leftPanel {
+  width: 280px;
+  min-width: 200px;
+  border-right: 3px solid #000000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #000000;
+  color: var(--text-on-black);
+}
+
+/* ── Right Panel ── */
+
+.rightPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Section: Structural dividers ── */
+
+.section {
+  padding: 10px 16px;
+  border-bottom: 2px solid #333333;
+}
+
+.sectionLabel {
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-on-black);
+  margin-bottom: 4px;
+  opacity: 0.6;
+}
+
+/* ── Proto Upload Area ── */
+
+.protoArea {
+  padding: 0;
+  flex: 1;
+  overflow: auto;
+}
+
+.protoUpload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 16px;
+  border: 3px dashed #333333;
+  border-radius: 0;
+  color: var(--text-on-black);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin: 16px;
+}
+
+.protoUpload:hover {
+  border-color: #E1000F;
+  color: #E1000F;
+}
+
+.protoLoaded {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-on-black);
+  opacity: 0.6;
+  padding: 8px 16px;
+}
+
+/* ── Service/Method List ── */
+
+.serviceItem {
+  padding: 0;
+  border-bottom: 2px solid #333333;
+}
+
+.serviceName {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-on-black);
+  padding: 10px 16px;
+  background-color: #1A1A1A;
+  border-bottom: 1px solid #333333;
+}
+
+.methodItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-on-black);
+  border-radius: 0;
+  border-bottom: 1px solid #222222;
+}
+
+.methodItem:hover {
+  background-color: #1A1A1A;
+}
+
+.methodItemActive {
+  background-color: #E1000F;
+  color: #FFFFFF;
+}
+
+.methodItemActive:hover {
+  background-color: #E1000F;
+}
+
+/* ── Method Badges: Solid color blocks ── */
+
+.methodBadge {
+  font-size: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 6px;
+  border-radius: 0;
+  background-color: #E1000F;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.methodBadgeStream {
+  background-color: #FFD700;
+  color: #000000;
+}
+
+/* ── Tabs: Structural, heavy borders ── */
+
+.tabs {
+  display: flex;
+  border-bottom: 3px solid #000000;
+  flex-shrink: 0;
+  background-color: var(--bg-primary);
+}
+
+.tab {
+  padding: 10px 16px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-tertiary);
+  background: none;
+  border: none;
+  border-right: 2px solid #000000;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: -3px;
+}
+
+.tab:hover {
+  color: #000000;
+}
+
+.tabActive {
+  color: #000000;
+  border-bottom-color: #E1000F;
+  background-color: var(--bg-primary);
+}
+
+/* ── Editor Area: Edge-to-edge ── */
+
+.editorArea {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+  background-color: var(--bg-content);
+}
+
+/* ── Metadata Editor ── */
+
+.metadataEditor {
+  padding: 0;
+  flex: 1;
+  overflow: auto;
+}
+
+.metaRow {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  align-items: stretch;
+  border-bottom: 2px solid #000000;
+}
+
+.metaInput {
+  flex: 1;
+  border-right: 2px solid #000000;
+}
+
+.metaInput:last-child {
+  border-right: none;
+}
+
+/* ── Response Area: Edge-to-edge ── */
+
+.responseArea {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-code);
+  white-space: pre-wrap;
+  word-break: break-all;
+  background-color: var(--bg-content);
+  color: var(--text-on-black);
+}
+
+/* ── Response Header: Dark header zone ── */
+
+.responseHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border-bottom: 3px solid #000000;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  flex-shrink: 0;
+  background-color: #000000;
+  color: var(--text-on-black);
+}
+
+.responseTime {
+  color: #FFD700;
+  font-family: var(--font-mono);
+}
+
+/* ── Stream Messages ── */
+
+.streamMessages {
+  flex: 1;
+  overflow: auto;
+}
+
+.streamMessage {
+  padding: 10px 16px;
+  border-bottom: 2px solid #000000;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-code);
+  white-space: pre-wrap;
+  word-break: break-all;
+  background-color: var(--bg-content);
+  color: var(--text-on-black);
+}
+
+.streamIndex {
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FFD700;
+  margin-bottom: 4px;
+}
+
+/* ── Error State ── */
+
+.errorText {
+  color: #E1000F;
+  padding: 16px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background-color: var(--bg-primary);
+  border-left: 4px solid #E1000F;
+}
+
+/* ── Empty/Loading States ── */
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  gap: 8px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ═══════════════════════════════════════════════
+   SCHEMA EXPLORER — Structural borders,
+   dark header zones
+   ═══════════════════════════════════════════════ */
+
+.schemaExplorer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.schemaSearch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-bottom: 3px solid #000000;
+  background-color: #000000;
+  color: var(--text-on-black);
+  flex-shrink: 0;
+}
+
+.schemaSearchInput {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-on-black);
+  font-family: inherit;
+}
+
+.schemaSearchInput::placeholder {
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+
+.schemaList {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+}
+
+/* ── Message Items in Schema ── */
+
+.messageItem {
+  border-bottom: 2px solid #000000;
+}
+
+.messageItemHighlight {
+  background-color: #FFFDE6;
+}
+
+.messageHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.messageHeader:hover {
+  background-color: var(--bg-secondary);
+}
+
+.messageName {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000000;
+  flex-shrink: 0;
+}
+
+.messageFullName {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+}
+
+.fieldCount {
+  font-size: 9px;
+  font-weight: 900;
+  color: var(--text-on-black);
+  background-color: #000000;
+  padding: 1px 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ── Field List ── */
+
+.fieldList {
+  padding: 0 16px 0 40px;
+  background-color: var(--bg-secondary);
+}
+
+.fieldRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: var(--font-size-caption);
+}
+
+.fieldRow:not(:last-child) {
+  border-bottom: 1px solid #000000;
+}
+
+.fieldNumber {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: var(--text-tertiary);
+  min-width: 20px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.fieldName {
+  color: #000000;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.fieldType {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-caption);
+  color: #00805A;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.fieldTypeMessage {
+  color: #E1000F;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 2px solid #E1000F;
+}
+
+.fieldTypeMessage:hover {
+  background-color: #E1000F;
+  color: #FFFFFF;
+}
+
+.fieldBadge {
+  font-size: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1px 6px;
+  border-radius: 0;
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  line-height: 16px;
+  border: 1px solid #000000;
+}
+
+.fieldBadgeMap {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+}
+
+/* ── Dark mode overrides ── */
+
+[data-theme="dark"] .tabs {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .tab {
+  border-color: var(--text-on-black);
+  color: var(--text-on-black);
+}
+
+[data-theme="dark"] .tab:hover {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .tabActive {
+  color: #FFFFFF;
+  border-bottom-color: #E1000F;
+}
+
+[data-theme="dark"] .messageName {
+  color: var(--text-on-black);
+}
+
+[data-theme="dark"] .fieldName {
+  color: var(--text-on-black);
+}
+
+[data-theme="dark"] .fieldRow:not(:last-child) {
+  border-color: #333333;
+}
+
+[data-theme="dark"] .messageItem {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .schemaList {
+  background-color: var(--bg-content);
+}
+
+[data-theme="dark"] .fieldList {
+  background-color: #1A1A1A;
+}
+
+[data-theme="dark"] .messageItemHighlight {
+  background-color: #2A2A1A;
+}

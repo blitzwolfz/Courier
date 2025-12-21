@@ -1,0 +1,139 @@
+/* ═══════════════════════════════════════════════
+   COOKIES VIEWER — Mondrian Control Deck
+   Heavy-bordered table, bold uppercase header,
+   monospace cookie values
+   ═══════════════════════════════════════════════ */
+
+.container {
+  overflow: auto;
+  height: 100%;
+  padding: 0;
+}
+
+/* ── Table: Heavy structural borders ── */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-body);
+  font-family: var(--font-mono);
+  border: 3px solid #000000;
+}
+
+/* ── Header: Bold uppercase, black background ── */
+
+.th {
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-on-black);
+  background-color: #000000;
+  border-bottom: 3px solid #000000;
+  border-right: 2px solid #333333;
+  white-space: nowrap;
+}
+
+.th:last-child {
+  border-right: none;
+}
+
+.thCenter {
+  composes: th;
+  text-align: center;
+}
+
+/* ── Data Rows: Structural borders ── */
+
+.row {
+  border-bottom: 2px solid #000000;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background-color: #FFFDE6;
+}
+
+/* ── Table Cells: Edge-to-edge ── */
+
+.td {
+  padding: 8px 16px;
+  color: var(--text-primary);
+  font-size: var(--font-size-code);
+  font-family: var(--font-mono);
+  vertical-align: top;
+  border-right: 2px solid #000000;
+}
+
+.td:last-child {
+  border-right: none;
+}
+
+.tdName {
+  composes: td;
+  font-weight: 900;
+  color: #E1000F;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tdValue {
+  composes: td;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+
+.tdCenter {
+  composes: td;
+  text-align: center;
+}
+
+/* ── Empty State ── */
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ── Dark mode overrides ── */
+
+[data-theme="dark"] .table {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .th {
+  border-color: #333333;
+}
+
+[data-theme="dark"] .row {
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .row:hover {
+  background-color: #2A2A1A;
+}
+
+[data-theme="dark"] .td {
+  color: var(--text-on-black);
+  border-color: var(--text-on-black);
+}
+
+[data-theme="dark"] .tdName {
+  color: #E1000F;
+}
