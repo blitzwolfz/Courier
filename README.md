@@ -11,7 +11,9 @@ All data stays on your machine in a local SQLite database. No accounts, no cloud
   ![Request builder](docs/screenshots/request-builder.png)
   ![Multiple tabs](docs/screenshots/tabs.png)
 -->
-
+![Courier main interface](docs/screenshots/main.png)
+<!-- ![Request builder](docs/screenshots/request-builder.png) -->
+![Multiple tabs](docs/screenshots/tabs.png)
 ---
 
 ## Features
@@ -119,6 +121,8 @@ Courier uses a Mondrian/Bauhaus-inspired visual system:
   ![Settings](docs/screenshots/settings.png)
   ![Global search](docs/screenshots/global-search.png)
 -->
+![Settings](docs/screenshots/settings.png)
+![Global search](docs/screenshots/global-search.png)
 
 ---
 
