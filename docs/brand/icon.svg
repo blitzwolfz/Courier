@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Courier App Icon
+       Bauhaus/Mondrian: bold geometric envelope with send arrow.
+       Designed to be recognizable from 32px to 512px.
+       Palette: #E1000F red, #000000 black, #F5F0EB warm white, #FFD700 yellow. -->
+
+  <!-- Black ground -->
+  <rect width="512" height="512" fill="#000000"/>
+
+  <!-- Red top-left accent block -->
+  <rect x="0" y="0" width="200" height="140" fill="#E1000F"/>
+
+  <!-- Yellow bottom-right accent block -->
+  <rect x="362" y="392" width="150" height="120" fill="#FFD700"/>
+
+  <!-- Main envelope body: warm white rectangle -->
+  <rect x="56" y="120" width="400" height="280" fill="#F5F0EB"/>
+
+  <!-- Heavy structural border around envelope -->
+  <rect x="56" y="120" width="400" height="6" fill="#000000"/>
+  <rect x="56" y="394" width="400" height="6" fill="#000000"/>
+  <rect x="56" y="120" width="6" height="280" fill="#000000"/>
+  <rect x="450" y="120" width="6" height="280" fill="#000000"/>
+
+  <!-- Envelope flap: red V shape -->
+  <polygon points="62,126 256,276 450,126" fill="#E1000F"/>
+
+  <!-- Envelope bottom V (shadow/depth) -->
+  <polygon points="62,394 256,280 450,394" fill="#E1000F" opacity="0.25"/>
+
+  <!-- Central send arrow: black diamond with white arrow -->
+  <polygon points="256,196 332,268 256,340 180,268" fill="#000000"/>
+  <polygon points="236,250 282,268 236,286" fill="#F5F0EB"/>
+
+  <!-- Thin structural cross-lines (Mondrian grid) -->
+  <rect x="0" y="254" width="56" height="4" fill="#333333"/>
+  <rect x="456" y="254" width="56" height="4" fill="#333333"/>
+</svg>

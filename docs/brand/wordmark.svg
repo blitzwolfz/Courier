@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" width="720" height="160">
+  <!-- Courier Wordmark
+       Bauhaus typographic lockup with geometric accents. -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@900&amp;display=swap');
+    .wordmark { font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: 96px; letter-spacing: 12px; }
+  </style>
+
+  <!-- Background -->
+  <rect width="720" height="160" fill="#000000"/>
+
+  <!-- Red accent bar (left) -->
+  <rect x="0" y="0" width="8" height="160" fill="#E1000F"/>
+
+  <!-- Yellow accent block (bottom-right) -->
+  <rect x="640" y="120" width="80" height="40" fill="#FFD700"/>
+
+  <!-- Wordmark text -->
+  <text x="40" y="112" class="wordmark" fill="#F5F0EB">COURIER</text>
+
+  <!-- Red underline accent -->
+  <rect x="40" y="124" width="200" height="6" fill="#E1000F"/>
+</svg>

@@ -241,8 +241,8 @@ Create a fast, reliable, privacy-focused API development tool that runs entirely
 ### Data Storage Strategy
 
 **Storage Location (Tauri's app data directory):**
-- macOS: `~/Library/Application Support/com.courier.app/`
-- Windows: `%APPDATA%\com.courier.app\`
+- macOS: `~/Library/Application Support/com.courier/`
+- Windows: `%APPDATA%\com.courier\`
 - Linux: `~/.local/share/courier/`
 
 **Tauri Store Plugin:**

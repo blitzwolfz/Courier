@@ -43,9 +43,13 @@ export function TopBar() {
     <div className={styles.topBar}>
       <div className={styles.left}>
         <div className={styles.logo}>
-          <svg className={styles.logoIcon} viewBox="0 0 24 24" fill="none">
-            <rect x="2" y="2" width="20" height="20" fill="#FFFFFF" />
-            <path d="M6 8 L12 12 L18 8 M6 16 L12 12 L18 16" stroke="#E1000F" strokeWidth="2.5" />
+          <svg className={styles.logoIcon} viewBox="0 0 512 512" fill="none">
+            <rect width="512" height="512" fill="none"/>
+            <rect x="56" y="116" width="400" height="284" fill="#F5F0EB"/>
+            <polygon points="56,116 256,272 456,116" fill="#FFFFFF"/>
+            <polygon points="256,200 324,264 256,328 188,264" fill="#000000"/>
+            <polygon points="240,248 280,264 240,280" fill="#F5F0EB"/>
+            <rect x="366" y="400" width="146" height="112" fill="#FFD700"/>
           </svg>
           COURIER
         </div>

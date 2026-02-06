@@ -215,9 +215,9 @@ All data is stored locally in a SQLite database using WAL mode. No network reque
 
 | Platform | Path |
 |----------|------|
-| Windows | `%APPDATA%\com.courier.app\courier.db` |
-| macOS | `~/Library/Application Support/com.courier.app/courier.db` |
-| Linux | `~/.local/share/com.courier.app/courier.db` |
+| Windows | `%APPDATA%\com.courier\courier.db` |
+| macOS | `~/Library/Application Support/com.courier/courier.db` |
+| Linux | `~/.local/share/com.courier/courier.db` |
 
 ---
 

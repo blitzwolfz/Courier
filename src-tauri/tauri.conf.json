@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Courier",
   "version": "0.1.0",
-  "identifier": "com.courier.app",
+  "identifier": "com.courier",
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:1420",
@@ -23,7 +23,7 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' ipc: http: https: ws: wss:; img-src 'self' asset: http: https: data:"
     }
   },
   "bundle": {
@@ -35,6 +35,46 @@
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "category": "DeveloperTool",
+    "shortDescription": "Local-first API development platform",
+    "longDescription": "Courier is a native desktop alternative to Postman. Send HTTP, WebSocket, gRPC, and GraphQL requests. Generate code in 11 languages. Write pre-request scripts and test assertions. Organize requests into collections with drag-and-drop. Import and export Postman collections. All data stays on your machine in a local SQLite database. No accounts, no cloud sync, no telemetry.",
+    "copyright": "Copyright 2025 Courier contributors",
+    "license": "MIT",
+    "resources": [],
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "timestampUrl": "http://timestamp.comodoca.com",
+      "nsis": {
+        "installMode": "both",
+        "displayLanguageSelector": false,
+        "installerIcon": "icons/icon.ico",
+        "languages": ["English"]
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "10.13",
+      "entitlements": "./Entitlements.plist",
+      "signingIdentity": null,
+      "frameworks": []
+    },
+    "linux": {
+      "deb": {
+        "depends": [
+          "libwebkit2gtk-4.1-0",
+          "libssl3",
+          "libayatana-appindicator3-1"
+        ],
+        "section": "devel",
+        "priority": "optional"
+      },
+      "rpm": {
+        "release": "1"
+      },
+      "appimage": {
+        "bundleMediaFramework": false
+      }
+    }
   }
 }

@@ -170,9 +170,9 @@ Courier stores its SQLite database (`courier.db`) in the platform-specific app d
 
 | Platform | Path |
 |----------|------|
-| Windows | `%APPDATA%\com.courier.app\` |
-| macOS | `~/Library/Application Support/com.courier.app/` |
-| Linux | `~/.local/share/com.courier.app/` |
+| Windows | `%APPDATA%\com.courier\` |
+| macOS | `~/Library/Application Support/com.courier/` |
+| Linux | `~/.local/share/com.courier/` |
 
 The database uses WAL (Write-Ahead Logging) mode for concurrent read performance. Tables: `collections`, `requests`, `environments`, `history`, `settings`.
 
@@ -183,7 +183,7 @@ The database uses WAL (Write-Ahead Logging) mode for concurrent read performance
 ### `src-tauri/tauri.conf.json`
 
 - `productName`: Application display name
-- `identifier`: Unique app identifier (`com.courier.app`)
+- `identifier`: Unique app identifier (`com.courier`)
 - `app.windows[0]`: Window dimensions (1280x800 default, 900x600 minimum)
 - `app.security.csp`: Content Security Policy (currently null for development)
 - `bundle`: Installer targets and icon paths

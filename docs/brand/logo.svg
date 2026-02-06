@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Bauhaus / Mondrian Courier Logo
+       Geometric composition: interlocking planes forming an abstract envelope/arrow.
+       Palette: De Stijl red, true black, warm white, Mondrian yellow.
+       Zero radii. Heavy structural lines. -->
+
+  <!-- Background: true black -->
+  <rect width="512" height="512" fill="#000000"/>
+
+  <!-- Structural grid lines (Mondrian primary grid) -->
+  <rect x="0" y="0" width="512" height="4" fill="#333333"/>
+  <rect x="0" y="508" width="512" height="4" fill="#333333"/>
+  <rect x="0" y="0" width="4" height="512" fill="#333333"/>
+  <rect x="508" y="0" width="4" height="512" fill="#333333"/>
+
+  <!-- LARGE RED PLANE: top-left quadrant accent -->
+  <rect x="24" y="24" width="180" height="120" fill="#E1000F"/>
+
+  <!-- YELLOW ACCENT: small block bottom-right -->
+  <rect x="368" y="408" width="120" height="80" fill="#FFD700"/>
+
+  <!-- WARM WHITE CANVAS: main central area -->
+  <rect x="24" y="160" width="464" height="232" fill="#F5F0EB"/>
+
+  <!-- ENVELOPE FORM: geometric abstraction using planes -->
+  <!-- Left diagonal of envelope -->
+  <polygon points="24,160 256,296 24,392" fill="#E1000F"/>
+  <!-- Right diagonal of envelope -->
+  <polygon points="488,160 256,296 488,392" fill="#E1000F"/>
+
+  <!-- Central diamond/arrow (the "send" action) -->
+  <polygon points="256,200 340,276 256,352 172,276" fill="#000000"/>
+  <!-- Inner arrow pointing right (direction/speed) -->
+  <polygon points="232,256 288,276 232,296" fill="#F5F0EB"/>
+
+  <!-- Heavy black structural divider -->
+  <rect x="24" y="152" width="464" height="6" fill="#000000"/>
+  <rect x="24" y="394" width="464" height="6" fill="#000000"/>
+
+  <!-- Top strip: "COURIER" letterforms suggestion via geometric blocks -->
+  <rect x="220" y="40" width="268" height="88" fill="#1A1A1A"/>
+  <!-- Abstract letter blocks within the strip -->
+  <rect x="232" y="56" width="12" height="56" fill="#F5F0EB"/>
+  <rect x="256" y="56" width="12" height="56" fill="#F5F0EB"/>
+  <rect x="232" y="56" width="36" height="10" fill="#F5F0EB"/>
+  <rect x="232" y="78" width="36" height="10" fill="#F5F0EB"/>
+  <rect x="232" y="102" width="36" height="10" fill="#F5F0EB"/>
+
+  <rect x="282" y="56" width="36" height="56" fill="none" stroke="#F5F0EB" stroke-width="10"/>
+
+  <rect x="332" y="56" width="12" height="56" fill="#F5F0EB"/>
+  <rect x="356" y="56" width="12" height="56" fill="#F5F0EB"/>
+  <rect x="332" y="56" width="36" height="10" fill="#F5F0EB"/>
+
+  <rect x="382" y="56" width="12" height="56" fill="#F5F0EB"/>
+  <rect x="406" y="56" width="12" height="56" fill="#F5F0EB"/>
+  <rect x="382" y="56" width="36" height="10" fill="#F5F0EB"/>
+  <rect x="382" y="102" width="36" height="10" fill="#F5F0EB"/>
+
+  <rect x="432" y="56" width="12" height="56" fill="#FFD700"/>
+  <rect x="448" y="74" width="12" height="38" fill="#FFD700"/>
+  <rect x="432" y="56" width="36" height="10" fill="#FFD700"/>
+
+  <!-- Bottom info strip -->
+  <rect x="24" y="416" width="328" height="72" fill="#1A1A1A"/>
+</svg>

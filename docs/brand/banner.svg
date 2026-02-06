@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <!-- Courier Social / GitHub Banner
+       Mondrian composition with logo lockup + tagline. -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;900&amp;family=Space+Mono:wght@400&amp;display=swap');
+    .title { font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: 80px; letter-spacing: 10px; }
+    .subtitle { font-family: 'Space Mono', monospace; font-weight: 400; font-size: 22px; letter-spacing: 2px; }
+    .tag { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 3px; text-transform: uppercase; }
+  </style>
+
+  <!-- Black ground -->
+  <rect width="1280" height="640" fill="#000000"/>
+
+  <!-- Mondrian color planes -->
+  <!-- Large red block: top-left -->
+  <rect x="0" y="0" width="400" height="240" fill="#E1000F"/>
+  <!-- Yellow block: bottom-right -->
+  <rect x="960" y="480" width="320" height="160" fill="#FFD700"/>
+  <!-- Warm white block: top-right strip -->
+  <rect x="960" y="0" width="320" height="80" fill="#F5F0EB"/>
+  <!-- Small red accent -->
+  <rect x="0" y="540" width="120" height="100" fill="#E1000F"/>
+  <!-- Charcoal plane -->
+  <rect x="0" y="240" width="400" height="300" fill="#1A1A1A"/>
+
+  <!-- Structural grid lines -->
+  <rect x="398" y="0" width="4" height="640" fill="#333333"/>
+  <rect x="958" y="0" width="4" height="640" fill="#333333"/>
+  <rect x="0" y="238" width="400" height="4" fill="#333333"/>
+  <rect x="960" y="78" width="320" height="4" fill="#333333"/>
+  <rect x="960" y="478" width="320" height="4" fill="#333333"/>
+  <rect x="0" y="538" width="400" height="4" fill="#333333"/>
+
+  <!-- Icon in the red block -->
+  <g transform="translate(140, 48) scale(0.36)">
+    <rect x="56" y="116" width="400" height="284" fill="#F5F0EB"/>
+    <polygon points="56,116 256,272 456,116" fill="#000000"/>
+    <polygon points="256,200 324,264 256,328 188,264" fill="#000000"/>
+    <polygon points="240,248 280,264 240,280" fill="#F5F0EB"/>
+  </g>
+
+  <!-- Title text -->
+  <text x="440" y="200" class="title" fill="#F5F0EB">COURIER</text>
+
+  <!-- Tagline -->
+  <text x="444" y="260" class="subtitle" fill="#B0B0B0">Local-first API development platform</text>
+
+  <!-- Tech tags -->
+  <rect x="444" y="310" width="120" height="32" fill="#1A1A1A" stroke="#333333" stroke-width="2"/>
+  <text x="504" y="332" class="tag" fill="#F5F0EB" text-anchor="middle">TAURI V2</text>
+
+  <rect x="580" y="310" width="120" height="32" fill="#1A1A1A" stroke="#333333" stroke-width="2"/>
+  <text x="640" y="332" class="tag" fill="#F5F0EB" text-anchor="middle">REACT 19</text>
+
+  <rect x="716" y="310" width="100" height="32" fill="#1A1A1A" stroke="#333333" stroke-width="2"/>
+  <text x="766" y="332" class="tag" fill="#F5F0EB" text-anchor="middle">RUST</text>
+
+  <rect x="832" y="310" width="110" height="32" fill="#1A1A1A" stroke="#333333" stroke-width="2"/>
+  <text x="887" y="332" class="tag" fill="#F5F0EB" text-anchor="middle">SQLITE</text>
+
+  <!-- Feature highlights in the charcoal area -->
+  <text x="40" y="296" class="tag" fill="#E1000F">HTTP</text>
+  <text x="40" y="326" class="tag" fill="#666666">WebSocket</text>
+  <text x="40" y="356" class="tag" fill="#666666">gRPC</text>
+  <text x="40" y="386" class="tag" fill="#666666">GraphQL</text>
+  <text x="40" y="416" class="tag" fill="#666666">Code Generation</text>
+  <text x="40" y="446" class="tag" fill="#666666">Scripting</text>
+  <text x="40" y="476" class="tag" fill="#FFD700">11 Languages</text>
+
+  <!-- Bottom bar: URL style branding -->
+  <rect x="444" y="580" width="500" height="40" fill="#1A1A1A"/>
+  <text x="464" y="606" class="subtitle" fill="#666666">No accounts. No cloud. No telemetry.</text>
+</svg>
