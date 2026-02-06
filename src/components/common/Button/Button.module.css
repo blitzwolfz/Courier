@@ -29,7 +29,7 @@
 /* Primary — solid red plane, white text, heavy black border */
 .primary {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: var(--text-on-red);
   border-color: var(--color-black);
 }
 
@@ -44,36 +44,36 @@
 
 /* Secondary — warm white plane, black text, heavy black border */
 .secondary {
-  background-color: #F5F0EB;
-  color: var(--color-black);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   border-color: var(--color-black);
 }
 
 .secondary:hover:not(:disabled) {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--button-secondary-hover-bg);
+  color: var(--button-secondary-hover-fg);
 }
 
 .secondary:active:not(:disabled) {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--button-secondary-hover-bg);
+  color: var(--button-secondary-hover-fg);
 }
 
 /* Danger — white bg, red text, red border; hover inverts */
 .danger {
-  background-color: var(--color-white);
+  background-color: var(--bg-primary);
   color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
 .danger:hover:not(:disabled) {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: var(--text-on-red);
 }
 
 .danger:active:not(:disabled) {
   background-color: var(--color-primary-dark);
-  color: var(--color-white);
+  color: var(--text-on-red);
 }
 
 /* Large variant — taller, bigger text */

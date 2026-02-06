@@ -19,7 +19,7 @@
   align-items: center;
   gap: 0;
   padding: 0;
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid var(--color-black);
   flex-shrink: 0;
 }
 
@@ -30,7 +30,7 @@
   background-color: var(--text-tertiary);
   flex-shrink: 0;
   margin: 0 12px;
-  border: 2px solid #000000;
+  border: 2px solid var(--color-black);
 }
 
 .statusConnected {
@@ -40,8 +40,8 @@
 
 .urlInput {
   flex: 1;
-  border-left: 2px solid #000000;
-  border-right: 2px solid #000000;
+  border-left: 2px solid var(--color-black);
+  border-right: 2px solid var(--color-black);
 }
 
 /* ── Message Log ── */
@@ -73,12 +73,12 @@
   padding: 10px 16px;
   margin-bottom: 0;
   border-radius: 0;
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid var(--color-black);
 }
 
-/* Sent: Black background (outgoing zone) */
+/* Sent: Dark background (outgoing zone) */
 .messageSent {
-  background-color: #000000;
+  background-color: var(--bg-sidebar);
   color: var(--text-on-black);
   border-left: 4px solid #E1000F;
 }
@@ -86,7 +86,7 @@
 /* Received: Warm white background */
 .messageReceived {
   background-color: var(--bg-primary);
-  color: #000000;
+  color: var(--text-primary);
   border-left: 4px solid #00805A;
 }
 
@@ -156,7 +156,7 @@
 }
 
 .messageReceived .messageData {
-  color: #000000;
+  color: var(--text-primary);
 }
 
 /* ── Composer: Heavy top border ── */
@@ -166,13 +166,13 @@
   align-items: center;
   gap: 0;
   padding: 0;
-  border-top: 3px solid #000000;
+  border-top: 3px solid var(--color-black);
   flex-shrink: 0;
 }
 
 .composerActions {
   flex-shrink: 0;
-  border-left: 2px solid #000000;
+  border-left: 2px solid var(--color-black);
   display: flex;
   align-items: stretch;
 }

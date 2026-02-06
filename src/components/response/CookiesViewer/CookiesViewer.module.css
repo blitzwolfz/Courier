@@ -17,10 +17,10 @@
   border-collapse: collapse;
   font-size: var(--font-size-body);
   font-family: var(--font-mono);
-  border: 3px solid #000000;
+  border: 3px solid var(--color-black);
 }
 
-/* ── Header: Bold uppercase, black background ── */
+/* ── Header: Bold uppercase, dark background ── */
 
 .th {
   text-align: left;
@@ -30,8 +30,8 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   color: var(--text-on-black);
-  background-color: #000000;
-  border-bottom: 3px solid #000000;
+  background-color: var(--bg-sidebar);
+  border-bottom: 3px solid var(--color-black);
   border-right: 2px solid #333333;
   white-space: nowrap;
 }
@@ -48,7 +48,7 @@
 /* ── Data Rows: Structural borders ── */
 
 .row {
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid var(--color-black);
 }
 
 .row:last-child {
@@ -56,7 +56,7 @@
 }
 
 .row:hover {
-  background-color: #FFFDE6;
+  background-color: var(--color-zebra);
 }
 
 /* ── Table Cells: Edge-to-edge ── */
@@ -67,7 +67,7 @@
   font-size: var(--font-size-code);
   font-family: var(--font-mono);
   vertical-align: top;
-  border-right: 2px solid #000000;
+  border-right: 2px solid var(--color-black);
 }
 
 .td:last-child {
@@ -109,31 +109,4 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 3px;
-}
-
-/* ── Dark mode overrides ── */
-
-[data-theme="dark"] .table {
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .th {
-  border-color: #333333;
-}
-
-[data-theme="dark"] .row {
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .row:hover {
-  background-color: #2A2A1A;
-}
-
-[data-theme="dark"] .td {
-  color: var(--text-on-black);
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .tdName {
-  color: #E1000F;
 }

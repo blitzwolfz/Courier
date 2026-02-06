@@ -15,14 +15,14 @@
   --color-primary-light: #FF2D3A;
 
   /* ── NEOPLASTIC NEUTRALS ── */
-  --color-black: #000000;           /* True black — structure */
-  --color-charcoal: #1A1A1A;        /* Deep charcoal — content zones */
-  --color-gray: #3A3A3A;
-  --color-mid-gray: #666666;
-  --color-light-gray: #B0B0B0;
-  --color-warm-white: #F5F0EB;      /* Warm white — Bauhaus canvas */
-  --color-white: #FFFFFF;
-  --color-zebra: #EDE8E3;
+  --color-black: #2D2925;           /* Structural graphite */
+  --color-charcoal: #3A3530;        /* Deep warm gray — content zones */
+  --color-gray: #5E5750;
+  --color-mid-gray: #7E766E;
+  --color-light-gray: #B8AEA3;
+  --color-warm-white: #F3EBDD;      /* Warm cream canvas */
+  --color-white: #FBF3E6;           /* Cream — softer than white */
+  --color-zebra: #ECE2D4;
 
   /* ── ACCENT PLANES ── */
   --color-warning: #FFD700;          /* Mondrian yellow — highlights */
@@ -35,30 +35,30 @@
   --color-post: #E1000F;
   --color-put: #E8C200;
   --color-patch: #CC6600;
-  --color-delete: #000000;
+  --color-delete: #4A433D;
   --color-head: #666666;
   --color-options: #3A3A3A;
 
   /* ── BACKGROUND PLANES ── */
-  --bg-primary: #F5F0EB;            /* Warm canvas */
-  --bg-secondary: #EDE8E3;          /* Slightly darker canvas */
-  --bg-tertiary: #E0DBD5;           /* Hover / active */
-  --bg-panel: #F5F0EB;
-  --bg-input: #FFFFFF;
-  --bg-sidebar: #000000;            /* Black sidebar zone */
+  --bg-primary: #F4ECDF;            /* Warm canvas */
+  --bg-secondary: #ECE2D3;          /* Slightly darker canvas */
+  --bg-tertiary: #E1D6C7;           /* Hover / active */
+  --bg-panel: #F4ECDF;
+  --bg-input: #FCF4E8;
+  --bg-sidebar: #2A2723;            /* Dark gray sidebar zone */
   --bg-topbar: #E1000F;             /* Red control strip */
-  --bg-content: #1A1A1A;            /* Dark content zone */
-  --bg-response: #F5F0EB;
+  --bg-content: #34302B;            /* Dark content zone */
+  --bg-response: #F4ECDF;
 
   /* ── TEXT COLORS ── */
-  --text-primary: #000000;
-  --text-secondary: #3A3A3A;
-  --text-tertiary: #888888;
+  --text-primary: #2D2925;
+  --text-secondary: #5B544D;
+  --text-tertiary: #8F857A;
   --text-inverse: #F5F0EB;
   --text-disabled: #B0B0B0;
   --text-on-red: #FFFFFF;
   --text-on-black: #F5F0EB;
-  --text-on-yellow: #000000;
+  --text-on-yellow: #2D2925;
 
   /* ── SPACING (8px grid, strict) ── */
   --space-2xs: 2px;
@@ -120,8 +120,8 @@
   --height-url-bar: 56px;           /* Massive URL zone */
 
   /* ── SIDEBAR ── */
-  --sidebar-width: 280px;
-  --sidebar-min-width: 220px;
+  --sidebar-width: 340px;
+  --sidebar-min-width: 280px;
 
   /* ── Z-INDEX ── */
   --z-dropdown: 100;
@@ -132,6 +132,10 @@
   --transition-fast: 80ms ease;
   --transition-normal: 160ms ease;
   --transition-slow: 300ms ease;
+
+  /* ── COMPONENT SEMANTICS ── */
+  --button-secondary-hover-bg: var(--text-primary);
+  --button-secondary-hover-fg: var(--bg-primary);
 }
 
 /* ============================================================
@@ -139,34 +143,39 @@
    Black becomes the canvas. Warm tones emerge from darkness.
    ============================================================ */
 [data-theme="dark"] {
-  --color-black: #F5F0EB;
+  --color-black: #504A43;
+  --color-charcoal: #2C2824;
+  --color-warm-white: #F3EBDD;
 
-  --bg-primary: #0D0D0D;
-  --bg-secondary: #161616;
-  --bg-tertiary: #222222;
-  --bg-panel: #0D0D0D;
-  --bg-input: #1A1A1A;
-  --bg-sidebar: #000000;
+  --bg-primary: #1B1916;
+  --bg-secondary: #24211D;
+  --bg-tertiary: #312D28;
+  --bg-panel: #1B1916;
+  --bg-input: #292520;
+  --bg-sidebar: #201D1A;
   --bg-topbar: #E1000F;
-  --bg-content: #0D0D0D;
-  --bg-response: #111111;
+  --bg-content: #24211D;
+  --bg-response: #201D1A;
 
-  --text-primary: #F5F0EB;
-  --text-secondary: #CCCCCC;
-  --text-tertiary: #777777;
-  --text-inverse: #000000;
-  --text-disabled: #444444;
+  --text-primary: #F3EBDD;
+  --text-secondary: #D0C5B8;
+  --text-tertiary: #A89E93;
+  --text-inverse: #1B1916;
+  --text-disabled: #716960;
+  --text-on-black: #F3EBDD;
+  --text-on-red: #FFFFFF;
 
-  --border-primary: 3px solid #444444;
-  --border-secondary: 2px solid #333333;
-  --border-light: 1px solid #333333;
-  --border-heavy: 4px solid #555555;
+  --border-primary: 3px solid #4C463F;
+  --border-secondary: 2px solid #454039;
+  --border-light: 1px solid #3A352F;
+  --border-heavy: 4px solid #575048;
   --border-focus: 3px solid #FF2D3A;
 
-  --color-zebra: #1A1A1A;
-  --color-light-gray: #444444;
-  --color-gray: #999999;
-  --color-mid-gray: #777777;
-  --color-warm-white: #F5F0EB;
+  --color-zebra: #26231F;
+  --color-light-gray: #7D756D;
+  --color-gray: #9A9187;
+  --color-mid-gray: #B2A79A;
   --color-delete: #FF4444;
+
+  --color-white: #F3EBDD;
 }

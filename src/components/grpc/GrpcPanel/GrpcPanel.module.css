@@ -18,14 +18,14 @@
   align-items: center;
   gap: 0;
   padding: 0;
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid var(--color-black);
   flex-shrink: 0;
   background-color: var(--bg-primary);
 }
 
 .urlInput {
   flex: 1;
-  border-right: 2px solid #000000;
+  border-right: 2px solid var(--color-black);
 }
 
 /* ── Workspace ── */
@@ -41,11 +41,11 @@
 .leftPanel {
   width: 280px;
   min-width: 200px;
-  border-right: 3px solid #000000;
+  border-right: 3px solid var(--color-black);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: #000000;
+  background-color: var(--bg-sidebar);
   color: var(--text-on-black);
 }
 
@@ -153,7 +153,7 @@
 
 .methodItemActive {
   background-color: #E1000F;
-  color: #FFFFFF;
+  color: var(--text-on-red);
 }
 
 .methodItemActive:hover {
@@ -170,20 +170,20 @@
   padding: 2px 6px;
   border-radius: 0;
   background-color: #E1000F;
-  color: #FFFFFF;
+  color: var(--text-on-red);
   flex-shrink: 0;
 }
 
 .methodBadgeStream {
   background-color: #FFD700;
-  color: #000000;
+  color: var(--text-on-yellow);
 }
 
 /* ── Tabs: Structural, heavy borders ── */
 
 .tabs {
   display: flex;
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid var(--color-black);
   flex-shrink: 0;
   background-color: var(--bg-primary);
 }
@@ -197,7 +197,7 @@
   color: var(--text-tertiary);
   background: none;
   border: none;
-  border-right: 2px solid #000000;
+  border-right: 2px solid var(--color-black);
   border-bottom: 3px solid transparent;
   border-radius: 0;
   cursor: pointer;
@@ -205,11 +205,11 @@
 }
 
 .tab:hover {
-  color: #000000;
+  color: var(--text-primary);
 }
 
 .tabActive {
-  color: #000000;
+  color: var(--text-primary);
   border-bottom-color: #E1000F;
   background-color: var(--bg-primary);
 }
@@ -236,12 +236,12 @@
   gap: 0;
   margin-bottom: 0;
   align-items: stretch;
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid var(--color-black);
 }
 
 .metaInput {
   flex: 1;
-  border-right: 2px solid #000000;
+  border-right: 2px solid var(--color-black);
 }
 
 .metaInput:last-child {
@@ -269,13 +269,13 @@
   align-items: center;
   gap: 12px;
   padding: 8px 16px;
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid var(--color-black);
   font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2px;
   flex-shrink: 0;
-  background-color: #000000;
+  background-color: var(--bg-sidebar);
   color: var(--text-on-black);
 }
 
@@ -293,7 +293,7 @@
 
 .streamMessage {
   padding: 10px 16px;
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid var(--color-black);
   font-family: var(--font-mono);
   font-size: var(--font-size-code);
   white-space: pre-wrap;
@@ -369,8 +369,8 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border-bottom: 3px solid #000000;
-  background-color: #000000;
+  border-bottom: 3px solid var(--color-black);
+  background-color: var(--bg-sidebar);
   color: var(--text-on-black);
   flex-shrink: 0;
 }
@@ -389,7 +389,7 @@
 }
 
 .schemaSearchInput::placeholder {
-  color: #666666;
+  color: var(--text-tertiary);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 10px;
@@ -404,11 +404,11 @@
 /* ── Message Items in Schema ── */
 
 .messageItem {
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid var(--color-black);
 }
 
 .messageItemHighlight {
-  background-color: #FFFDE6;
+  background-color: var(--color-zebra);
 }
 
 .messageHeader {
@@ -430,7 +430,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #000000;
+  color: var(--text-primary);
   flex-shrink: 0;
 }
 
@@ -451,7 +451,7 @@
   font-size: 9px;
   font-weight: 900;
   color: var(--text-on-black);
-  background-color: #000000;
+  background-color: var(--bg-sidebar);
   padding: 1px 6px;
   flex-shrink: 0;
   white-space: nowrap;
@@ -473,7 +473,7 @@
 }
 
 .fieldRow:not(:last-child) {
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid var(--color-black);
 }
 
 .fieldNumber {
@@ -487,7 +487,7 @@
 }
 
 .fieldName {
-  color: #000000;
+  color: var(--text-primary);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -511,7 +511,7 @@
 
 .fieldTypeMessage:hover {
   background-color: #E1000F;
-  color: #FFFFFF;
+  color: var(--text-on-red);
 }
 
 .fieldBadge {
@@ -525,54 +525,16 @@
   color: var(--text-secondary);
   flex-shrink: 0;
   line-height: 16px;
-  border: 1px solid #000000;
+  border: 1px solid var(--color-black);
 }
 
 .fieldBadgeMap {
-  background-color: #000000;
-  color: #FFFFFF;
-  border-color: #000000;
+  background-color: var(--bg-sidebar);
+  color: var(--text-on-black);
+  border-color: var(--bg-sidebar);
 }
 
 /* ── Dark mode overrides ── */
-
-[data-theme="dark"] .tabs {
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .tab {
-  border-color: var(--text-on-black);
-  color: var(--text-on-black);
-}
-
-[data-theme="dark"] .tab:hover {
-  color: #FFFFFF;
-}
-
-[data-theme="dark"] .tabActive {
-  color: #FFFFFF;
-  border-bottom-color: #E1000F;
-}
-
-[data-theme="dark"] .messageName {
-  color: var(--text-on-black);
-}
-
-[data-theme="dark"] .fieldName {
-  color: var(--text-on-black);
-}
-
-[data-theme="dark"] .fieldRow:not(:last-child) {
-  border-color: #333333;
-}
-
-[data-theme="dark"] .messageItem {
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .schemaList {
-  background-color: var(--bg-content);
-}
 
 [data-theme="dark"] .fieldList {
   background-color: #1A1A1A;

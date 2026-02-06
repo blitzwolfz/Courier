@@ -83,7 +83,11 @@ function HistoryPanel() {
       <div className={styles.header}>
         <span className={styles.title}>History</span>
         {historyEntries.length > 0 && (
-          <IconButton onClick={clearAllHistory} title="Clear all history">
+          <IconButton
+            onClick={clearAllHistory}
+            title="Clear all history"
+            className={styles.headerAction}
+          >
             <Trash2 size={14} />
           </IconButton>
         )}

@@ -1,25 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <!-- Courier Simplified Icon (for small sizes: favicon, 32px, taskbar)
-       Maximum contrast, minimal detail. -->
+       Red ground ensures visibility on both light and dark OS chrome. -->
 
-  <!-- Black ground -->
-  <rect width="512" height="512" fill="#000000"/>
+  <!-- Red ground -->
+  <rect width="512" height="512" fill="#E1000F"/>
 
-  <!-- Red accent corner -->
-  <rect x="0" y="0" width="180" height="120" fill="#E1000F"/>
+  <!-- Black structural frame -->
+  <rect x="0" y="0" width="512" height="512" fill="none" stroke="#000000" stroke-width="24"/>
 
   <!-- White envelope body -->
-  <rect x="56" y="116" width="400" height="284" fill="#F5F0EB"/>
+  <rect x="56" y="120" width="400" height="280" fill="#F5F0EB"/>
 
   <!-- Red envelope flap -->
-  <polygon points="56,116 256,272 456,116" fill="#E1000F"/>
+  <polygon points="56,120 256,276 456,120" fill="#E1000F"/>
+
+  <!-- Black border on envelope top edge -->
+  <line x1="56" y1="120" x2="256" y2="276" stroke="#000000" stroke-width="6"/>
+  <line x1="256" y1="276" x2="456" y2="120" stroke="#000000" stroke-width="6"/>
+  <rect x="56" y="120" width="400" height="280" fill="none" stroke="#000000" stroke-width="6"/>
 
   <!-- Black arrow diamond -->
-  <polygon points="256,200 324,264 256,328 188,264" fill="#000000"/>
+  <polygon points="256,196 328,264 256,332 184,264" fill="#000000"/>
 
   <!-- White send arrow -->
-  <polygon points="240,248 280,264 240,280" fill="#FFFFFF"/>
+  <polygon points="240,248 284,264 240,280" fill="#FFFFFF"/>
 
-  <!-- Yellow accent -->
-  <rect x="366" y="400" width="146" height="112" fill="#FFD700"/>
+  <!-- Yellow accent block bottom-right -->
+  <rect x="356" y="400" width="156" height="112" fill="#FFD700"/>
+  <rect x="356" y="400" width="156" height="112" fill="none" stroke="#000000" stroke-width="4"/>
 </svg>

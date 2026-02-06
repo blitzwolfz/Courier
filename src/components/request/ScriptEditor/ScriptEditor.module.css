@@ -18,7 +18,7 @@
   align-items: stretch;
   gap: 0;
   padding: 0;
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid var(--color-black);
   flex-shrink: 0;
   overflow-x: auto;
   background-color: var(--bg-primary);
@@ -29,13 +29,12 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: var(--text-tertiary);
   white-space: nowrap;
   display: flex;
   align-items: center;
   padding: 0 12px;
-  border-right: 2px solid #000000;
-  background-color: #000000;
+  border-right: 2px solid var(--color-black);
+  background-color: var(--bg-sidebar);
   color: var(--text-on-black);
 }
 
@@ -47,17 +46,17 @@
   letter-spacing: 1.5px;
   padding: 8px 12px;
   border: none;
-  border-right: 2px solid #000000;
+  border-right: 2px solid var(--color-black);
   border-radius: 0;
   background: var(--bg-primary);
-  color: #000000;
+  color: var(--text-primary);
   cursor: pointer;
   white-space: nowrap;
 }
 
 .snippetBtn:hover {
-  background-color: #000000;
-  color: var(--text-on-black);
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
 .snippetBtn:last-child {
@@ -70,26 +69,4 @@
   flex: 1;
   min-height: 0;
   background-color: var(--bg-content);
-}
-
-/* ── Dark mode overrides ── */
-
-[data-theme="dark"] .snippetBar {
-  border-color: var(--text-on-black);
-  background-color: var(--bg-content);
-}
-
-[data-theme="dark"] .snippetBtn {
-  background-color: var(--bg-content);
-  color: var(--text-on-black);
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .snippetBtn:hover {
-  background-color: var(--text-on-black);
-  color: #000000;
-}
-
-[data-theme="dark"] .snippetLabel {
-  border-color: var(--text-on-black);
 }

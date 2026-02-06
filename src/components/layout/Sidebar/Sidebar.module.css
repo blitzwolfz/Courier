@@ -24,6 +24,7 @@
   flex-shrink: 0;
   min-height: 40px;
   background-color: var(--bg-sidebar);
+  color: var(--text-on-black);
 }
 
 .title {
@@ -34,6 +35,13 @@
   color: var(--text-on-black);
   white-space: nowrap;
   line-height: var(--line-height-tight);
+}
+
+.headerAction {
+  --icon-button-fg: var(--color-light-gray);
+  --icon-button-fg-hover: var(--text-on-black);
+  --icon-button-bg-hover: rgba(255, 255, 255, 0.08);
+  --icon-button-fg-active: var(--color-primary);
 }
 
 /* ── SEARCH BAR ── */

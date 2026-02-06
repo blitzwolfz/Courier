@@ -6,17 +6,17 @@
 
 .container {
   width: 100%;
-  border: 3px solid #000000;
+  border: 3px solid var(--color-black);
 }
 
-/* ── Header Row: Black slab with white uppercase ── */
+/* ── Header Row: Dark slab with light uppercase ── */
 
 .header {
   display: flex;
   gap: 0;
   padding: 0;
-  background-color: #000000;
-  border-bottom: 3px solid #000000;
+  background-color: var(--bg-sidebar);
+  border-bottom: 3px solid var(--color-black);
 }
 
 .headerCheckbox {
@@ -58,7 +58,7 @@
   align-items: stretch;
   gap: 0;
   padding: 0;
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid var(--color-black);
   min-height: 36px;
 }
 
@@ -77,7 +77,7 @@
   border-radius: 0;
   appearance: none;
   -webkit-appearance: none;
-  border: 2px solid #000000;
+  border: 2px solid var(--color-black);
   background-color: var(--bg-primary);
   display: flex;
   align-items: center;
@@ -94,7 +94,7 @@
   content: '';
   width: 6px;
   height: 6px;
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   display: block;
 }
 
@@ -111,7 +111,7 @@
   color: var(--text-primary);
   background-color: var(--bg-primary);
   border: none;
-  border-right: 2px solid #000000;
+  border-right: 2px solid var(--color-black);
   border-radius: 0;
   outline: none;
 }
@@ -122,8 +122,8 @@
 
 .keyInput:focus,
 .valueInput:focus {
-  background-color: #FFFDE6;
-  border-color: #000000;
+  background-color: var(--color-zebra);
+  border-color: var(--color-black);
 }
 
 .keyInput::placeholder,
@@ -139,7 +139,7 @@
 .deleteBtn {
   flex-shrink: 0;
   opacity: 0;
-  border-left: 2px solid #000000;
+  border-left: 2px solid var(--color-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,10 +154,10 @@
 
 .deleteBtn:hover {
   background-color: #E1000F;
-  color: #FFFFFF;
+  color: var(--text-on-red);
 }
 
-/* ── Add Row: Simple black text, uppercase ── */
+/* ── Add Row: Simple text, uppercase ── */
 
 .addRow {
   padding: 0;
@@ -171,7 +171,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #000000;
+  color: var(--text-primary);
   background: none;
   border: none;
   border-radius: 0;
@@ -180,37 +180,6 @@
 }
 
 .addBtn:hover {
-  background-color: #000000;
-  color: var(--text-on-black);
-}
-
-/* ── Dark mode overrides ── */
-
-[data-theme="dark"] .container {
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .keyInput,
-[data-theme="dark"] .valueInput {
-  background-color: var(--bg-content);
-  color: var(--text-on-black);
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .keyInput:focus,
-[data-theme="dark"] .valueInput:focus {
-  background-color: #2A2A1A;
-}
-
-[data-theme="dark"] .row {
-  border-color: var(--text-on-black);
-}
-
-[data-theme="dark"] .addBtn {
-  color: var(--text-on-black);
-}
-
-[data-theme="dark"] .addBtn:hover {
-  background-color: var(--text-on-black);
-  color: #000000;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
 }

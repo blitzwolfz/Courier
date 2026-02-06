@@ -82,7 +82,7 @@
   letter-spacing: var(--letter-spacing-ultra);
   text-transform: uppercase;
   color: var(--color-white);
-  background-color: #000000;
+  background-color: var(--color-primary);
   border: none;
   border-left: 3px solid var(--color-black);
   border-radius: 0;
@@ -92,7 +92,7 @@
 }
 
 .sendButton:hover {
-  background-color: #1A1A1A;
+  background-color: var(--color-primary-dark);
 }
 
 .sendButton:active {
@@ -125,6 +125,6 @@
 }
 
 .cancelButton:active {
-  background-color: #000000;
+  background-color: var(--bg-primary);
   color: var(--color-primary);
 }

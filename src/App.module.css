@@ -21,7 +21,7 @@
 /* ── RESIZE HANDLES — Structural black lines ── */
 .resizeHandleH {
   width: 4px;
-  background-color: #000000;
+  background-color: var(--color-black);
   cursor: col-resize;
   transition: background-color var(--transition-fast);
   position: relative;
@@ -35,7 +35,7 @@
 
 .resizeHandleV {
   height: 4px;
-  background-color: #000000;
+  background-color: var(--color-black);
   cursor: row-resize;
   transition: background-color var(--transition-fast);
   position: relative;

@@ -45,10 +45,10 @@ export function TopBar() {
         <div className={styles.logo}>
           <svg className={styles.logoIcon} viewBox="0 0 512 512" fill="none">
             <rect width="512" height="512" fill="none"/>
-            <rect x="56" y="116" width="400" height="284" fill="#F5F0EB"/>
-            <polygon points="56,116 256,272 456,116" fill="#FFFFFF"/>
-            <polygon points="256,200 324,264 256,328 188,264" fill="#000000"/>
-            <polygon points="240,248 280,264 240,280" fill="#F5F0EB"/>
+            <rect x="56" y="116" width="400" height="284" fill="var(--color-warm-white)"/>
+            <polygon points="56,116 256,272 456,116" fill="var(--color-white)"/>
+            <polygon points="256,200 324,264 256,328 188,264" fill="var(--color-black)"/>
+            <polygon points="240,248 280,264 240,280" fill="var(--color-warm-white)"/>
             <rect x="366" y="400" width="146" height="112" fill="#FFD700"/>
           </svg>
           COURIER
@@ -56,7 +56,7 @@ export function TopBar() {
         <IconButton
           onClick={toggleSidebar}
           title={sidebarVisible ? 'Hide sidebar' : 'Show sidebar'}
-          style={{ color: 'rgba(255,255,255,0.7)' }}
+          className={styles.topBarIcon}
         >
           {sidebarVisible ? <PanelLeftClose size={16} /> : <PanelLeft size={16} />}
         </IconButton>
@@ -106,14 +106,14 @@ export function TopBar() {
         <IconButton
           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
           title={theme === 'light' ? 'Dark mode' : 'Light mode'}
-          style={{ color: 'rgba(255,255,255,0.7)' }}
+          className={styles.topBarIcon}
         >
           {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
         </IconButton>
         <IconButton
           onClick={() => setShowSettings(true)}
           title="Settings"
-          style={{ color: 'rgba(255,255,255,0.7)' }}
+          className={styles.topBarIcon}
         >
           <Settings size={16} />
         </IconButton>

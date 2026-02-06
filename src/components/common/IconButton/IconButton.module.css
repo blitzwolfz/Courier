@@ -7,15 +7,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-secondary);
+  color: var(--icon-button-fg, var(--text-secondary));
   transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .iconButton:hover {
-  color: var(--text-primary);
-  background-color: var(--bg-tertiary);
+  color: var(--icon-button-fg-hover, var(--text-primary));
+  background-color: var(--icon-button-bg-hover, var(--bg-tertiary));
 }
 
 .iconButton:active {
-  color: var(--color-primary);
+  color: var(--icon-button-fg-active, var(--color-primary));
 }
