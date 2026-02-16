@@ -2,19 +2,21 @@ use rusqlite::{params, Connection};
 
 use crate::error::AppError;
 use crate::models::request::HttpRequest;
+use crate::db::parse_json_field;
 
 pub fn create_request(
     conn: &Connection,
     request: &HttpRequest,
 ) -> Result<(), AppError> {
     conn.execute(
-        "INSERT INTO requests (id, collection_id, name, method, url, headers, body, auth, pre_request_script, test_script, sort_order, created_at, updated_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13)",
+        "INSERT INTO requests (id, collection_id, name, method, url, params, headers, body, auth, pre_request_script, test_script, sort_order, created_at, updated_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14)",
         params![
             request.id,
             request.collection_id,
             request.name,
             request.method,
             request.url,
+            request.params.to_string(),
             request.headers.to_string(),
             request.body.to_string(),
             request.auth.to_string(),
@@ -28,34 +30,40 @@ pub fn create_request(
     Ok(())
 }
 
+fn read_request_from_row(row: &rusqlite::Row) -> rusqlite::Result<HttpRequest> {
+    let params_str: String = row.get(5)?;
+    let headers_str: String = row.get(6)?;
+    let body_str: String = row.get(7)?;
+    let auth_str: String = row.get(8)?;
+
+    Ok(HttpRequest {
+        id: row.get(0)?,
+        collection_id: row.get(1)?,
+        name: row.get(2)?,
+        method: row.get(3)?,
+        url: row.get(4)?,
+        params: parse_json_field(&params_str, serde_json::json!([])),
+        headers: parse_json_field(&headers_str, serde_json::json!([])),
+        body: parse_json_field(&body_str, serde_json::json!({"type": "none", "content": ""})),
+        auth: parse_json_field(&auth_str, serde_json::json!({"type": "none"})),
+        pre_request_script: row.get(9)?,
+        test_script: row.get(10)?,
+        sort_order: row.get(11)?,
+        created_at: row.get(12)?,
+        updated_at: row.get(13)?,
+    })
+}
+
 pub fn get_requests_by_collection(
     conn: &Connection,
     collection_id: &str,
 ) -> Result<Vec<HttpRequest>, AppError> {
     let mut stmt = conn.prepare(
-        "SELECT id, collection_id, name, method, url, headers, body, auth, pre_request_script, test_script, sort_order, created_at, updated_at FROM requests WHERE collection_id = ?1 ORDER BY sort_order, name",
+        "SELECT id, collection_id, name, method, url, params, headers, body, auth, pre_request_script, test_script, sort_order, created_at, updated_at FROM requests WHERE collection_id = ?1 ORDER BY sort_order, name",
     )?;
 
     let rows = stmt.query_map(params![collection_id], |row| {
-        let headers_str: String = row.get(5)?;
-        let body_str: String = row.get(6)?;
-        let auth_str: String = row.get(7)?;
-
-        Ok(HttpRequest {
-            id: row.get(0)?,
-            collection_id: row.get(1)?,
-            name: row.get(2)?,
-            method: row.get(3)?,
-            url: row.get(4)?,
-            headers: serde_json::from_str(&headers_str).unwrap_or(serde_json::json!([])),
-            body: serde_json::from_str(&body_str).unwrap_or(serde_json::json!({"type": "none", "content": ""})),
-            auth: serde_json::from_str(&auth_str).unwrap_or(serde_json::json!({"type": "none"})),
-            pre_request_script: row.get(8)?,
-            test_script: row.get(9)?,
-            sort_order: row.get(10)?,
-            created_at: row.get(11)?,
-            updated_at: row.get(12)?,
-        })
+        read_request_from_row(row)
     })?;
 
     let mut requests = Vec::new();
@@ -70,29 +78,11 @@ pub fn get_request_by_id(
     id: &str,
 ) -> Result<HttpRequest, AppError> {
     let mut stmt = conn.prepare(
-        "SELECT id, collection_id, name, method, url, headers, body, auth, pre_request_script, test_script, sort_order, created_at, updated_at FROM requests WHERE id = ?1",
+        "SELECT id, collection_id, name, method, url, params, headers, body, auth, pre_request_script, test_script, sort_order, created_at, updated_at FROM requests WHERE id = ?1",
     )?;
 
     stmt.query_row(params![id], |row| {
-        let headers_str: String = row.get(5)?;
-        let body_str: String = row.get(6)?;
-        let auth_str: String = row.get(7)?;
-
-        Ok(HttpRequest {
-            id: row.get(0)?,
-            collection_id: row.get(1)?,
-            name: row.get(2)?,
-            method: row.get(3)?,
-            url: row.get(4)?,
-            headers: serde_json::from_str(&headers_str).unwrap_or(serde_json::json!([])),
-            body: serde_json::from_str(&body_str).unwrap_or(serde_json::json!({"type": "none", "content": ""})),
-            auth: serde_json::from_str(&auth_str).unwrap_or(serde_json::json!({"type": "none"})),
-            pre_request_script: row.get(8)?,
-            test_script: row.get(9)?,
-            sort_order: row.get(10)?,
-            created_at: row.get(11)?,
-            updated_at: row.get(12)?,
-        })
+        read_request_from_row(row)
     }).map_err(|_| AppError::NotFound(format!("Request {} not found", id)))
 }
 
@@ -102,11 +92,12 @@ pub fn update_request(
 ) -> Result<(), AppError> {
     let now = chrono::Utc::now().to_rfc3339();
     let updated = conn.execute(
-        "UPDATE requests SET name = ?1, method = ?2, url = ?3, headers = ?4, body = ?5, auth = ?6, pre_request_script = ?7, test_script = ?8, sort_order = ?9, updated_at = ?10 WHERE id = ?11",
+        "UPDATE requests SET name = ?1, method = ?2, url = ?3, params = ?4, headers = ?5, body = ?6, auth = ?7, pre_request_script = ?8, test_script = ?9, sort_order = ?10, updated_at = ?11 WHERE id = ?12",
         params![
             request.name,
             request.method,
             request.url,
+            request.params.to_string(),
             request.headers.to_string(),
             request.body.to_string(),
             request.auth.to_string(),

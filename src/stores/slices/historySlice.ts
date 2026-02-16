@@ -9,6 +9,21 @@ export interface HistoryEntry {
   status_code: number;
   response_time: number;
   timestamp: string;
+  request_snapshot: {
+    method: string;
+    url: string;
+    headers: [string, string][];
+    body: string | null;
+    params: { id: string; key: string; value: string; enabled: boolean }[];
+    auth: { type: string; [key: string]: unknown };
+  };
+  response_snapshot: {
+    status_code: number;
+    status_text: string;
+    headers: Record<string, string>;
+    size: number;
+    time: number;
+  };
 }
 
 export interface HistorySlice {

@@ -165,6 +165,8 @@ pub async fn send_request(
             "url": url,
             "headers": clean_headers,
             "body": body,
+            "params": [],
+            "auth": {"type": "none"},
         }),
         response_snapshot: serde_json::json!({
             "status_code": response.status_code,

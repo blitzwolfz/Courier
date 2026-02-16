@@ -15,7 +15,7 @@ export interface CollectionsSlice {
   loadCollectionRequests: (collectionId: string) => Promise<void>;
   saveRequest: (request: RequestData) => Promise<void>;
   removeRequest: (id: string, collectionId: string) => Promise<void>;
-  importPostmanCollection: (jsonContent: string) => Promise<void>;
+  importPostmanCollection: (jsonContent: string) => Promise<Collection>;
   exportPostmanCollection: (collectionId: string) => Promise<string>;
 }
 
@@ -73,8 +73,9 @@ export const createCollectionsSlice: StateCreator<AppState, [], [], CollectionsS
   },
 
   importPostmanCollection: async (jsonContent) => {
-    await api.importPostmanCollection(jsonContent);
+    const collection = await api.importPostmanCollection(jsonContent);
     await get().loadCollections();
+    return collection;
   },
 
   exportPostmanCollection: async (collectionId) => {

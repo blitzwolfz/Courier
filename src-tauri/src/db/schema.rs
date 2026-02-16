@@ -53,7 +53,9 @@ CREATE INDEX IF NOT EXISTS idx_history_url ON history(url);";
 pub const CREATE_SEARCH_INDEXES: &str = "
 CREATE INDEX IF NOT EXISTS idx_requests_name ON requests(name);
 CREATE INDEX IF NOT EXISTS idx_requests_url ON requests(url);
-CREATE INDEX IF NOT EXISTS idx_collections_name ON collections(name);";
+CREATE INDEX IF NOT EXISTS idx_collections_name ON collections(name);
+CREATE INDEX IF NOT EXISTS idx_requests_collection_sort ON requests(collection_id, sort_order);
+CREATE INDEX IF NOT EXISTS idx_collections_parent ON collections(parent_id);";
 
 pub const CREATE_SETTINGS: &str = "
 CREATE TABLE IF NOT EXISTS settings (

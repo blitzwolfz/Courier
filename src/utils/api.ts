@@ -116,22 +116,27 @@ export async function getRequests(collectionId: string): Promise<RequestData[]> 
   return invoke('get_requests', { collectionId });
 }
 
+export async function getRequest(id: string): Promise<RequestData> {
+  return invoke('get_request', { id });
+}
+
 export async function createSavedRequest(request: RequestData): Promise<void> {
   return invoke('create_request', {
     request: {
       id: request.id,
-      collection_id: request.collectionId,
+      collectionId: request.collectionId,
       name: request.name,
       method: request.method,
       url: request.url,
-      headers: JSON.stringify(request.headers),
-      body: JSON.stringify(request.body),
-      auth: JSON.stringify(request.auth),
-      pre_request_script: request.preRequestScript,
-      test_script: request.testScript,
-      sort_order: request.sortOrder,
-      created_at: request.createdAt,
-      updated_at: request.updatedAt,
+      params: request.params,
+      headers: request.headers,
+      body: request.body,
+      auth: request.auth,
+      preRequestScript: request.preRequestScript,
+      testScript: request.testScript,
+      sortOrder: request.sortOrder,
+      createdAt: request.createdAt,
+      updatedAt: request.updatedAt,
     },
   });
 }
@@ -140,18 +145,19 @@ export async function updateSavedRequest(request: RequestData): Promise<void> {
   return invoke('update_request', {
     request: {
       id: request.id,
-      collection_id: request.collectionId,
+      collectionId: request.collectionId,
       name: request.name,
       method: request.method,
       url: request.url,
-      headers: JSON.stringify(request.headers),
-      body: JSON.stringify(request.body),
-      auth: JSON.stringify(request.auth),
-      pre_request_script: request.preRequestScript,
-      test_script: request.testScript,
-      sort_order: request.sortOrder,
-      created_at: request.createdAt,
-      updated_at: request.updatedAt,
+      params: request.params,
+      headers: request.headers,
+      body: request.body,
+      auth: request.auth,
+      preRequestScript: request.preRequestScript,
+      testScript: request.testScript,
+      sortOrder: request.sortOrder,
+      createdAt: request.createdAt,
+      updatedAt: request.updatedAt,
     },
   });
 }

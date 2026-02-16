@@ -7,7 +7,8 @@ import { CollectionsTree } from '../../collections/CollectionsTree/CollectionsTr
 import { EnvironmentsList } from '../../environments/EnvironmentsList/EnvironmentsList';
 import { MethodBadge, StatusBadge } from '../../common/Badge/Badge';
 import { IconButton } from '../../common/IconButton/IconButton';
-import type { HttpMethod } from '../../../types/request';
+import type { HttpMethod, KeyValuePair, AuthConfig } from '../../../types/request';
+import type { HistoryEntry } from '../../../stores/slices/historySlice';
 import styles from './Sidebar.module.css';
 
 export function Sidebar() {
@@ -41,17 +42,39 @@ function HistoryPanel() {
     return true;
   });
 
-  const handleOpenEntry = (entry: { method: string; url: string; id: string }) => {
+  const handleOpenEntry = (entry: HistoryEntry) => {
+    const snapshot = entry.request_snapshot;
+
+    // Convert [string, string][] headers from snapshot to KeyValuePair[]
+    const headers: KeyValuePair[] = (snapshot?.headers ?? []).map(
+      (h: [string, string], i: number) => ({
+        id: `hdr-${i}`,
+        key: h[0] ?? '',
+        value: h[1] ?? '',
+        enabled: true,
+      })
+    );
+
+    // Restore params from snapshot
+    const params: KeyValuePair[] = (snapshot?.params ?? []).map(
+      (p: { id?: string; key: string; value: string; enabled?: boolean }, i: number) => ({
+        id: p.id ?? `prm-${i}`,
+        key: p.key ?? '',
+        value: p.value ?? '',
+        enabled: p.enabled ?? true,
+      })
+    );
+
     openTab({
       id: `history-${entry.id}`,
       collectionId: null,
       name: entry.url.replace(/^https?:\/\//, '').split('/').slice(0, 2).join('/') || entry.url,
       method: (entry.method || 'GET') as HttpMethod,
       url: entry.url,
-      params: [],
-      headers: [],
-      body: { type: 'none', content: '' },
-      auth: { type: 'none' },
+      params,
+      headers,
+      body: { type: 'none', content: snapshot?.body ?? '' },
+      auth: (snapshot?.auth as AuthConfig) ?? { type: 'none' },
       preRequestScript: '',
       testScript: '',
       sortOrder: 0,
@@ -142,9 +165,9 @@ function HistoryPanel() {
 }
 
 interface VirtualHistoryListProps {
-  items: { id: string; method: string; url: string; status_code: number; response_time: number; timestamp: string }[];
+  items: HistoryEntry[];
   scrollRef: React.RefObject<HTMLDivElement | null>;
-  onOpen: (entry: { method: string; url: string; id: string }) => void;
+  onOpen: (entry: HistoryEntry) => void;
   formatTimestamp: (ts: string) => string;
 }
 

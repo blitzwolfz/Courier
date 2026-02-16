@@ -29,5 +29,21 @@ pub fn initialize(app_data_dir: &Path) -> Result<Connection, AppError> {
     conn.execute_batch(schema::CREATE_SETTINGS)?;
     conn.execute_batch(schema::CREATE_SEARCH_INDEXES)?;
 
+    // Migrations — add params column if missing
+    let _ = conn.execute_batch("ALTER TABLE requests ADD COLUMN params TEXT NOT NULL DEFAULT '[]'");
+
     Ok(conn)
+}
+
+/// Parse a JSON string from the DB, unwrapping double-encoded strings.
+/// Handles legacy data where values were stored as `"\"[...]\""` instead of `"[...]"`.
+pub fn parse_json_field(s: &str, default: serde_json::Value) -> serde_json::Value {
+    match serde_json::from_str(s) {
+        Ok(serde_json::Value::String(inner)) => {
+            // Double-encoded: the DB string was a JSON string containing JSON
+            serde_json::from_str(&inner).unwrap_or(default)
+        }
+        Ok(val) => val,
+        Err(_) => default,
+    }
 }

@@ -2,8 +2,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Folder, FileText, Clock } from 'lucide-react';
 import { useStore } from '../../../stores';
 import { MethodBadge } from '../../common/Badge/Badge';
-import { globalSearch, type SearchResult } from '../../../utils/api';
-import { createEmptyRequest, type HttpMethod } from '../../../types/request';
+import { globalSearch, getRequest, type SearchResult } from '../../../utils/api';
+import { createEmptyRequest, type HttpMethod, type RequestData } from '../../../types/request';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './GlobalSearch.module.css';
 
@@ -51,29 +51,35 @@ export function GlobalSearch() {
   }, [query]);
 
   const handleSelect = useCallback(
-    (result: SearchResult) => {
+    async (result: SearchResult) => {
       setShowSearch(false);
 
       if (result.result_type === 'collection') {
         setActivePanel('collections');
         if (!sidebarVisible) toggleSidebar();
       } else if (result.result_type === 'request') {
-        openTab({
-          id: result.id,
-          collectionId: result.collection_id ?? null,
-          name: result.name,
-          method: (result.method || 'GET') as HttpMethod,
-          url: result.url || '',
-          params: [],
-          headers: [],
-          body: { type: 'none', content: '' },
-          auth: { type: 'none' },
-          preRequestScript: '',
-          testScript: '',
-          sortOrder: 0,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-        });
+        try {
+          const fullRequest = await getRequest(result.id);
+          openTab(fullRequest as RequestData);
+        } catch {
+          // Fallback if fetch fails
+          openTab({
+            id: result.id,
+            collectionId: result.collection_id ?? null,
+            name: result.name,
+            method: (result.method || 'GET') as HttpMethod,
+            url: result.url || '',
+            params: [],
+            headers: [],
+            body: { type: 'none', content: '' },
+            auth: { type: 'none' },
+            preRequestScript: '',
+            testScript: '',
+            sortOrder: 0,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          });
+        }
       } else if (result.result_type === 'history') {
         // Open history entry as a new tab
         const req = createEmptyRequest(uuidv4());

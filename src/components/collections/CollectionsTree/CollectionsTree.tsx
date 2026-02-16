@@ -17,7 +17,7 @@ import { useStore } from '../../../stores';
 import { MethodBadge } from '../../common/Badge/Badge';
 import { IconButton } from '../../common/IconButton/IconButton';
 import { Button } from '../../common/Button/Button';
-import { createEmptyRequest, type HttpMethod } from '../../../types/request';
+import { createEmptyRequest, type HttpMethod, type RequestData } from '../../../types/request';
 import { CollectionRunner } from '../../runner/CollectionRunner/CollectionRunner';
 import { moveCollection, moveRequest } from '../../../utils/api';
 import type { Collection } from '../../../types/collection';
@@ -108,23 +108,8 @@ export function CollectionsTree() {
     openTab(req);
   };
 
-  const handleOpenRequest = (request: { id: string; collection_id?: string | null; name: string; method: string; url: string }) => {
-    openTab({
-      id: request.id,
-      collectionId: request.collection_id ?? null,
-      name: request.name,
-      method: (request.method || 'GET') as HttpMethod,
-      url: request.url || '',
-      params: [],
-      headers: [],
-      body: { type: 'none', content: '' },
-      auth: { type: 'none' },
-      preRequestScript: '',
-      testScript: '',
-      sortOrder: 0,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    });
+  const handleOpenRequest = (request: RequestData) => {
+    openTab(request);
   };
 
   const handleImport = () => {
@@ -449,16 +434,10 @@ function CollectionItem({
 
 // Draggable request item
 interface RequestItemProps {
-  request: {
-    id: string;
-    collection_id?: string | null;
-    name: string;
-    method: string;
-    url: string;
-  };
+  request: RequestData;
   depth: number;
   collectionId: string;
-  onOpen: (req: { id: string; collection_id?: string | null; name: string; method: string; url: string }) => void;
+  onOpen: (req: RequestData) => void;
 }
 
 function RequestItem({ request, depth, collectionId, onOpen }: RequestItemProps) {

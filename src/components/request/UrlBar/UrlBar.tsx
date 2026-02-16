@@ -45,7 +45,17 @@ export function UrlBar() {
 
     try {
       const vars = buildVariableMap(environments, activeEnvironmentId);
-      const url = interpolateVariables(activeRequest.url, vars);
+      let url = interpolateVariables(activeRequest.url, vars);
+
+      // Append enabled params to URL
+      const enabledParams = activeRequest.params.filter((p) => p.enabled && p.key);
+      if (enabledParams.length > 0) {
+        const separator = url.includes('?') ? '&' : '?';
+        const qs = enabledParams
+          .map((p) => `${encodeURIComponent(interpolateVariables(p.key, vars))}=${encodeURIComponent(interpolateVariables(p.value, vars))}`)
+          .join('&');
+        url = `${url}${separator}${qs}`;
+      }
 
       const headers: [string, string][] = activeRequest.headers
         .filter((h) => h.enabled && h.key)
@@ -61,7 +71,10 @@ export function UrlBar() {
         const encoded = btoa(`${activeRequest.auth.basic.username}:${activeRequest.auth.basic.password}`);
         headers.push(['Authorization', `Basic ${encoded}`]);
       } else if (activeRequest.auth.type === 'api-key' && activeRequest.auth.apiKey) {
-        if (activeRequest.auth.apiKey.addTo === 'header') {
+        if (activeRequest.auth.apiKey.addTo === 'query') {
+          const separator = url.includes('?') ? '&' : '?';
+          url = `${url}${separator}${encodeURIComponent(activeRequest.auth.apiKey.key)}=${encodeURIComponent(activeRequest.auth.apiKey.value)}`;
+        } else {
           headers.push([activeRequest.auth.apiKey.key, activeRequest.auth.apiKey.value]);
         }
       } else if (activeRequest.auth.type === 'oauth2' && activeRequest.auth.oauth2?.token) {

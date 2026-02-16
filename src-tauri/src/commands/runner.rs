@@ -93,6 +93,32 @@ pub async fn run_collection(
                 return Ok(summary);
             }
 
+            // Build URL with query params
+            let mut effective_url = request.url.clone();
+            if let Some(params_arr) = request.params.as_array() {
+                let enabled_params: Vec<_> = params_arr
+                    .iter()
+                    .filter(|p| {
+                        p.get("enabled").and_then(|e| e.as_bool()).unwrap_or(true)
+                            && p.get("key").and_then(|k| k.as_str()).map(|k| !k.is_empty()).unwrap_or(false)
+                    })
+                    .collect();
+                if !enabled_params.is_empty() {
+                    let sep = if effective_url.contains('?') { "&" } else { "?" };
+                    let qs: Vec<String> = enabled_params
+                        .iter()
+                        .map(|p| {
+                            format!(
+                                "{}={}",
+                                p["key"].as_str().unwrap_or(""),
+                                p["value"].as_str().unwrap_or("")
+                            )
+                        })
+                        .collect();
+                    effective_url = format!("{}{}{}", effective_url, sep, qs.join("&"));
+                }
+            }
+
             // Parse headers from JSON
             let headers: Vec<(String, String)> = if let Some(arr) = request.headers.as_array() {
                 arr.iter()
@@ -149,7 +175,7 @@ pub async fn run_collection(
             if !request.pre_request_script.is_empty() {
                 let ctx = ScriptContext {
                     method: request.method.clone(),
-                    url: request.url.clone(),
+                    url: effective_url.clone(),
                     headers: effective_headers.clone(),
                     body: body.clone(),
                     environment: HashMap::new(),
@@ -162,7 +188,7 @@ pub async fn run_collection(
             // Execute HTTP request
             let result = client::execute_request(
                 &request.method,
-                &request.url,
+                &effective_url,
                 effective_headers.clone(),
                 body.clone(),
                 30,
@@ -179,7 +205,7 @@ pub async fn run_collection(
                 total_iterations: iterations,
                 request_name: request.name.clone(),
                 method: request.method.clone(),
-                url: request.url.clone(),
+                url: effective_url.clone(),
                 status_code: None,
                 response_time: None,
                 test_results: vec![],
@@ -196,7 +222,7 @@ pub async fn run_collection(
                     if !request.test_script.is_empty() {
                         let ctx = ScriptContext {
                             method: request.method.clone(),
-                            url: request.url.clone(),
+                            url: effective_url.clone(),
                             headers: effective_headers,
                             body,
                             environment: HashMap::new(),
